@@ -3,7 +3,7 @@ I tried to set up an automatic script to do the following, but I was unable to d
 That being the case, I will need you guys to enter your MYSQL server as the root user and enter the following lines of code. Be sure to replace the word username with the mysql user that will be accessing the table.
 You can enter most one by one, but the create table command bust be pasted in full all the way down to the MYISAM line.
 
-'''
+```
 CREATE DATABASE StatTracker;
 GRANT ALL PRIVILEGES ON StatTracker TO 'username'@'localhost';
 USE StatTracker;
@@ -26,7 +26,7 @@ CREATE TABLE users (
 ) ENGINE = MYISAM;
 
 DESCRIBE users;
-'''
+```
 ---
 Now that you have the database set up, you can edit the 'variables.php' file with your server's information so that our PHP scripts will be able to connect.
 Just type in the following and add your username and password.
