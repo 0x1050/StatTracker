@@ -1,7 +1,7 @@
 # Setup
 I tried to set up an automatic script to do the following, but I was unable to do so.
 That being the case, I will need you guys to enter your MYSQL server as the root user and enter the following lines of code. Be sure to replace the word username with the mysql user that will be accessing the table.
-You can enter most one by one, but the create table command bust be pasted in full all the way down to the MYISAM line.
+You can enter most one by one, but the create table command must be pasted in full all the way down to the MYISAM line.
 
 ```
 CREATE DATABASE StatTracker;
