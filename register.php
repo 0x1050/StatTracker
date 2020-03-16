@@ -20,8 +20,9 @@
         die("Connection failed: " . $serverlink->connect_error);
     } else {
         //If connected, create variables for insertion
-        $username = $POST["username"];
-        $emailhash = password_hash($_POST["email"]);
+        $username = $_POST["username"];
+        $group = $_POST["group"];
+        $emailhash = password_hash($_POST["email"], PASSWORD_BCRYPT);
         $passhash = password_hash($_POST["pass1"], PASSWORD_BCRYPT);
 
         //Check if username is already in the database
