@@ -1,3 +1,26 @@
+# Questions
+We are limited in how many questions we can ask the students.
+As such, I think it would be best to ask questions in a dynamic manner based on what the student's like/dislike about each individual project.
+In order to do this, we will first ask the students for one thing that they like and dislike about each project.
+These two questions will be categorical and have the same answers.
+I'm thinking the three categories should be:
+- If the project looks professional/well designed (visual)
+- If the project is implemented well (technology)
+- If the project is useful (creative/usable)
+---
+Upon receiving feedback about what category each individual likes and dislikes, we will serve them questions based on their original choice.
+This will ensure that each group receives not only feedback that tells them what they did good, but also what they are lacking.
+This way, will make all criticism of the project appear more constructive and won't be a bummer when they receive their group reviews.
+
+---
+After the second round of questions, I want to have the students provide written feedback as well.
+The feedback will be free-form and answer two questions:
+- Do you feel you can make a similar project with the things that you have learned in this class?(This will be presented to the professor)
+- Do you have any comments for the group that just finished presenting? (This is of course for the students)
+
+---
+Below you will find the original questions
+
 # Ordinal Likert
 
 The project:
