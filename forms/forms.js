@@ -1,5 +1,5 @@
 window.onload = function() {
-    loadFragment("forms/input.html");
+    loadFragment("forms/login.html");
 }
 
 function loadFragment(url) {
