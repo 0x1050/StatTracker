@@ -11,8 +11,10 @@ function loadFragment(url) {
     xhr.send();
     //Handle request
     xhr.onreadystatechange = function() {
-        if (xhr.readyState == 4 && xhr.status == 200) {
+        if (xhr.readyState === 4 && xhr.status === 200) {
             form.innerHTML = xhr.responseText;
         }
     }
 }
+
+
