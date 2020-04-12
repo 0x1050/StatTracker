@@ -1,37 +1,14 @@
-<p>Register.html</p>
-<DOCTYPE!>
-<html>
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta name="description" content="This is a registration page.">
-        <meta name="author" content="Adrian Cuvi">
-        <title>Registration page</title>
-        <link rel="stylesheet" href="style.css">
-    </head>
-    <body>
-       <div class="box6">
-            <h2>Register</h2>
-            <form>
-                <div class="inputBox">
-                    <input type="text" name="" required>
-                    <label>First Name</label>
-                </div>
-                <div class="inputBox">
-                    <input type="text" name="" required>
-                    <label>Last Name</label>
-                </div>
-                <div class="inputBox">
-                    <input type="email" name="" required>
-                    <label>Email Address</label>
-                </div>
-                <div class="inputBox">
-                    <input type="password" name="" required>
-                    <label>Password</label>
-                </div>
-                    <input type="submit" name="" value="submit">
-            </form>
-        </div>
-    </body>
-</html>
-        
+<form action="register.php" method="post" enctype="multipart/form-data">
+    <!--//Fix forms to reflect the information that we need
+    //Password x2, username, email, group --!>
+    <input type="text" name="" required>
+    <label>First Name</label>
+    <input type="text" name="" required>
+    <label>Last Name</label>
+    <input type="email" name="" required>
+    <label>Email Address</label>
+    <input type="password" name="" required>
+    <label>Password</label>
+    <input type="submit" name="" value="submit">
+    <!-- Add links to login and reset --!>
+</form>
