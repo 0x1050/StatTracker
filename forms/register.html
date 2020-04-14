@@ -1,16 +1,53 @@
 <form action="register.php" method="post" enctype="multipart/form-data">
-    <!--//Fix forms to reflect the information that we need
-    //Password x2, username, email, group --!>
-    <input type="text" name="" required>
-    <label>First Name</label>
-    <input type="text" name="" required>
-    <label>Last Name</label>
-    <input type="email" name="" required>
-    <label>Email Address</label>
-    <input type="password" name="" required>
-    <label>Password</label>
-    <input type="submit" name="" value="submit">
-    <!-- Add links to login and reset --!>
-    <a href="#" id="login" onclick="loadFragment('forms/login.html')"> log in </a> 
-
+    <!-- Add a new version for register.html
+         The new version has Username, Email, Password, Group, and a link that links to login.html-->
+    <table>
+        <tr>
+            <td>
+                Username:
+            </td>
+            <td>
+                <input type="text" placeholder="Username" name="username" required>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Emai:
+            </td>
+            <td>
+                <input tyep="email" placeholder="Email" name="email" required>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Password:
+            </td>
+            <td>
+                <input type="password" placeholder="Password" name="password" required>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Group Number:
+            </td>
+            <td>
+                <select>
+                    <option>1</option>
+                    <option>2</option>
+                    <option>3</option>
+                    <option>4</option>
+                    <option>5</option>
+                    <option>6</option>
+                </select>
+            </td>
+        </tr> 
+        <tr>
+            <td>
+                <input type="Submit" value="Register" name="">
+            </td>
+            <td>
+                <a hrf="#" id="login" onclick="loadFragment('forms/login.html')"> Already have an account? </a>
+            </td>
+        </tr>
+    </table>
 </form>
