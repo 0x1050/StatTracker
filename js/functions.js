@@ -8,7 +8,7 @@ function fadeIn (element)  {
 
         const animation = () => {
             element.style.opacity = opacity += 0.01;
-            if (opacity == 1) {
+            if (element.style.opacity == 1) {
                 cancelAnimationFrame(request);
             }
         };
@@ -20,31 +20,12 @@ function fadeIn (element)  {
         rAf();
 };
 
-function fadeOut(element) {
-    let opacity = 1;
-    let request;
-
-    const animation = () => {
-        element.style.opacity = opacity -= 0.01;
-        if (opacity == 0) {
-            cancelAnimationFrame(request);
-        }
-    };
-
-    const rAf = () => {
-        request = requestAnimationFrame(rAf);
-        animation();
-    };
-    rAf();
-    element.style.display = 'none';
-}
-
 //-----------------------------------------------------AJAX
 //For most cases, you will call this function without
 //a value for fade. The only time you won't, you'll use a 0
 //with. Do this when loding a page for the first time while
 //the element is hidden by "display: none" in the css
-function loadFragment(url, element, fade = 1) {
+function loadFragment(url, element) {
     //Create request and select form div
     var xhr = new XMLHttpRequest();
     //Set request, send it
@@ -53,15 +34,9 @@ function loadFragment(url, element, fade = 1) {
     //Handle request
     xhr.onreadystatechange = function() {
         if (xhr.readyState === 4 && xhr.status === 200) {
-            if (fade == 0) {
-                element.innerHTML = xhr.responseText;
-                fadeIn(element);
-            }
-            else {
-                fadeOut(element);
-                element.innerHTML = xhr.responseText;
-                fadeIn(element);
-            }
+            element.style.display = 'none';
+            element.innerHTML = xhr.responseText;
+            fadeIn(element);
         }
     }
 }
