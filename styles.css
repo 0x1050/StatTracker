@@ -1,8 +1,25 @@
-body {
-    margin: 0;
-}
+/*Please make sure that any elements that are meant to
+  fade in and out of the page have their display property
+  set to none in order to allow JS to manipulate them properly*/
+
 
 #form {
-    transition: opacity 300ms ease-in-out;
+    display: none;
+    background-color: #ccc;
+    width: 20em;
+    margin: auto;
+    margin-top: 8em;
+    text-align: center;
+    border-radius: 2em 0 2em 0;
+    border: .3em solid #000;
+    padding: 1em;
+}
+
+input {
+    padding: 1em;
+    text-align: center;
+    margin: .2em;
+    border: none;
+    background-color: #fff;
 }
 
