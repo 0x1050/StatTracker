@@ -77,3 +77,21 @@ function freeform() {
 
 // TO DO:``
 // - Create a functions that runs the appropriate functions once the given html page is loaded
+
+/************************************************/
+/*********** Survey Functions Handler ***********/
+/************************************************/
+
+var page = window.location.pathname.split("/").pop();
+
+window.onload = function() {
+	if(page === "category.html") {
+		category();
+	} else if(page === "likert.html") {
+		likert();
+	} else if(page === "rating.html") {
+		rating();
+	} else if(page === "freeform.html") {
+		freeform();
+	}
+}	
