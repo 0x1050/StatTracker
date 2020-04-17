@@ -1,13 +1,12 @@
-<div>
-	<form action="freeform.php">
-		<div>
-			<label for="ff1">Freeform Question 1:</label>
-			<input type="text" id="ff1" name="ff1">
-		</div>
-		<div>
-			<label for="ff2">Freeform Question 2:</label>
-			<input type="text" id="ff2" name="ff2">
-		</div>
-		<button type="submit" class="">Submit</button>
-	</form>
-</div>
+<form action="freeform.php" method="post" enctype="multipart/form-data">
+	<div>
+		<label id="ff1"></label>
+		<input type="text" name="ff1" value="">
+	</div>
+	<div>
+		<label id="ff2"></label>
+		<input type="text" name="ff2" value="">
+	</div>
+</form>
+
+<script src="/js/surveys.js"></script>
