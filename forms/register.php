@@ -12,7 +12,7 @@ $dbname = "StatTracker";
 //creating a connection with  database
 //mysqli_connect_errno() Returns the error code from last connect call
 //mysqli_connect_error() Returns a string description of the last connect error
-$connection = new mysqli ($host, $dbusername, $dbpasswoord, $dbname);
+$connection = new mysqli ($host, $dbusername, $dbpassword, $dbname);
 if(mysqli_connect_error()){
   die('Error Connecting ('.mysqli_connect_errno().')'
     .mysqli_connect_error());
