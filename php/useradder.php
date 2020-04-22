@@ -33,7 +33,7 @@
 	    mysqli_query($serverlink, $sql);
 
 	    //Populate Users table
-	    for ($i = 1; $i <= 10; $i++) {
+	    for ($i = 1; $i <= count($names); $i++) {
 		    $id = $i;
 		    if ($id > 5) {
 			    $id -= 4;
@@ -80,7 +80,7 @@
 		    mysqli_query($serverlink, $sql);
 
 		    //Populate group tables
-		    for ($j = 1; $j < 11; $j++) {
+		    for ($j = 1; $j <= count($names); $j++) {
 			    $like = rand(1, 3);
 			    $dislike = rand(1, 3);
 			    while ($dislike == $like) {

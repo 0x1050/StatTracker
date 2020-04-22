@@ -9,7 +9,8 @@ $names = [
 	7  => "Brian",
 	8  => "Amanda",
 	9  => "Edward",
-	10 => "Laura"
+	10 => "Laura",
+	11 => "Alex"
 ];
 $usernames = [
 	1  => "nhon",
@@ -21,6 +22,7 @@ $usernames = [
 	7  => "nairb",
 	8  => "adnama",
 	9  => "drawde",
-	10 => "arual"
+	10 => "arual",
+	11 => "xela"
 ];
 ?>
