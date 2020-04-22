@@ -19,17 +19,15 @@ if(mysqli_connect_error()){
 }
 
 else {
-    if($password == $password2){
-        $sql = "INSERT INTO Users(username, email, groupNumber, password)
-        values ('$username', '$email', '$group', '$password');"
-        if(connection->query($sql)){
-            echo "New data has been inserted succesfully";
-        }
+    $sql = "INSERT INTO Users(username, email, groupNumber, password)
+    values ('$username', '$email', '$group', '$password')";
+    if(connection->query($sql)){
+        echo "New data has been inserted succesfully";
+    }
     else {
     echo "Some error has occurred".$sql."<br>".$connection->error;
     }
         $connection->close();
-    }
 }
 
 ?>
