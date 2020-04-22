@@ -21,7 +21,7 @@ if(mysqli_connect_error()){
 else {
     if($password == $password2){
         $sql = "INSERT INTO Users(username, email, groupNumber, password)
-        values ('$username', '$email', '$group', '$password')";
+        values ('$username', '$email', '$group', '$password');"
         if(connection->query($sql)){
             echo "New data has been inserted succesfully";
         }
