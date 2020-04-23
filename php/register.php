@@ -14,6 +14,7 @@ if(mysqli_connect_error()){
 }
 
 else {
+	//Don't forget to check against email
         $password_hash = password_hash($password, PASSWORD_BCRYPT);
         $email_encrypt = password_hash($email, PASSWORD_BCRYPT);
         $sql = "INSERT INTO Users(username, email, groupNumber, password)
