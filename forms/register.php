@@ -8,7 +8,6 @@ $host = "localhost";
 $dbusername = "root";
 $dbpassword = "Vladimir99";
 $dbname = "StatTracker";
-
 //creating a connection with  database
 //mysqli_connect_errno() Returns the error code from last connect call
 //mysqli_connect_error() Returns a string description of the last connect error
@@ -20,9 +19,8 @@ if(mysqli_connect_error()){
 
 else {
     if($password == $password2){
-        $salt = "!@v#$$";
-        $email_encrypt = crypt($email, "$salt");
         $password_hash = password_hash($password, PASSWORD_ARGON2I);
+        $email_encrypt = password_hash($password, PASSWORD_BCRYPT);
         $sql = "INSERT INTO Users(username, email, groupNumber, password)
         values ('$username', '$email_encrypt', '$group', '$password_hash')";
         if($connection->query($sql)){
