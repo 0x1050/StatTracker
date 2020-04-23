@@ -71,7 +71,7 @@ the visualizations and the feedback -->
 			    $sql  = "CREATE TABLE IF NOT EXISTS G" . $i;
 			    $sql .= "(LikeA INT(1) DEFAULT NULL,";
 			    $sql .= "LikeB INT(1) DEFAULT NULL,";
-			    $sql .= "like INT(1) DEFAULT NULL,";
+			    $sql .= "likeC INT(1) DEFAULT NULL,";
                             $sql .= "DislikeA INT(1) DEFAULT NULL,";
                             $sql .= "DislikeB INT(1) DEFAULT NULL,";
                             $sql .= "DislikeC INT(1) DEFAULT NULL,";
