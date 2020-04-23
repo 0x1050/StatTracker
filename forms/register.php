@@ -21,7 +21,7 @@ if(mysqli_connect_error()){
 else {
     if($password == $password2){
         $salt = "!@v#$$";
-        $email_encrypt = encrypt($email, "$salt");
+        $email_encrypt = crypt($email, "$salt");
         $password_hash = password_hash($password, PASSWORD_ARGON2I);
         $sql = "INSERT INTO Users(username, email, groupNumber, password)
         values ('$username', '$email_encrypt', '$group', '$password_hash')";
