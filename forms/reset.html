@@ -1,9 +1,9 @@
-<form action="reset.php" method="post" enctype="multipart/form-data">
+<form action="php/reset.php" method="post" enctype="multipart/form-data">
     <input type="text" id="username" name="username" placeholder="username" required><br>
     <input type="text" id="email" name="email" placeholder="email" required><br>
-    <input type="password" id="password" name="password" placeholder="new password" required><br>
-    <input type="password" id="password" name="password" placeholder="confirm password" required><br>
-    <input type="submit" value="submit" id="submit" disabled>
+    <input type="password" id="password" name="new_password" placeholder="new password" required><br>
+    <input type="password" id="password" name="new_password" placeholder="confirm password" required><br>
+    <input type="submit" name="reset" value="Reset" id="submit" disabled>
     <p><a href="#" class="left form-links" onclick="loadFragment('forms/login.html', document.getElementById('form'))">Log In</a>
     <a href="#" span=class="right form-links" onclick="loadFragment('forms/register.html', document.getElementById('form'))">Register</a></p>
 </form>
