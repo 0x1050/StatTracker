@@ -58,7 +58,7 @@ the visualizations and the feedback -->
                                               active,
                                               stayLoggedIn) VALUES(\"$usernames[$i]\",
                                                                    \"$email\",
-                                                                   \"$names[$i]\",
+                                                                   \"$passhash\",
                                                                    \"$id\",
                                                                    \"1\",
                                                                    \"1\",
