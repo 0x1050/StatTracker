@@ -17,8 +17,8 @@
         //Here we check for the user with the credentials entered
         $usercheck = mysqli_query($serverlink, "SELECT * FROM Users WHERE username=\"$user\"");
 
-        if (!empty($usercheck)) {
-            $userdata = $usercheck->fetch_assoc();
+        //This fetches the associations in $usercheck if they exist and returns false if its empty
+        if (!empty($userdata = $usercheck->fetch_assoc())) {
             if (password_verify($pass, $userdata["password"])) {
                 echo "All good";
             }
