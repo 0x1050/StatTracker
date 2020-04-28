@@ -9,28 +9,28 @@
         die("Connection failed: " . $serverlink->connect_error);
     else {
         //Now that we have a connection, let's see if the email and username
-        $user = mysqli_real_escape_string($_POST["username"]);
-	//Do we use real_escape_string when encrypting the password?
-	//Wouldn't that change the passcode?
-        $pass = mysqli_real_escape_string($_POST["password"]};
-    
-        //Here we check for the user with the credentials entered
-        $usercheck = mysqli_query($serverlink,"SELECT * FROM user WHERE username=\"$user\");
+        $user = $serverlink->real_escape_string($_POST["username"]);
+        //Do we use real_escape_string when encrypting the password?
+        //Wouldn't that change the passcode?
+        $pass = $serverlink->real_escape_string($_POST["password"]);
 
-        if ($usercheck->num_rows == 0) {
-            //The credentials did not match any in the database
-            echo "<br>Invalid credentials, please hit back on your browser and try again";
+        //Here we check for the user with the credentials entered
+        $usercheck = mysqli_query($serverlink, "SELECT * FROM Users WHERE username=\"$user\"");
+
+        if (!empty($usercheck)) {
+            $userdata = $usercheck->fetch_assoc();
+            if (password_verify($pass, $userdata["password"])) {
+                echo "All good";
+            }
+            else {
+                echo "Bad password";
+            }
         }
         else {
-            $userdata = $usercheck->fetch_assoc();
-            //Check if password matches
-            if (password_verify($pass,$userdata["pw"]))
-                echo "Succesfull login";
-            else
-                echo "Invalid password";
+            echo "Bad username: $user";
         }
     }
 
-    mysqli_close($serverlink);
+        mysqli_close($serverlink);
 
 ?>
