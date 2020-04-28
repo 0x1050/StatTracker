@@ -51,8 +51,8 @@ the visualizations and the feedback -->
 		    $email = password_hash($names[$i] . "@bmcc.cuny.edu", PASSWORD_BCRYPT);
 		    $passhash = password_hash($names[$i], PASSWORD_BCRYPT);
 		    $sql = "INSERT INTO Users(username,
-			                      email,
-					      password,
+			                          email,
+                                      password,
 					      groupNumber,
                                               theme,
                                               active,
