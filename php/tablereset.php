@@ -118,17 +118,17 @@ the visualizations and the feedback -->
                                            "        . $dislike . "3,
                                            Scale,
                                                FF1,
-                                               FF2) VALUES(\"" . rand(1, 5)     . "\",
-                                                                   \"" . rand(1, 5)     . "\",
-                                                                   \"" . rand(1, 5)     . "\",
-                                                                   \"" . rand(1, 5)     . "\",
-                                                                   \"" . rand(1, 5)     . "\",
-                                                                   \"" . rand(1, 5)     . "\",
-                                                                   \"" . rand(1, 5)     . "\",
-                                                                   \"" . rand(1, 5)     . "\",
-                                                                   \"" . rand(1, 10)    . "\",
-                                                                   \"" . $names[$j]     . "\",
-                                                                   \"" . $usernames[$j] . "\")";
+                                               FF2) VALUES(\"1\",
+                                                           \"1\",
+                                                           \"" . rand(1, 5)     . "\",
+                                                           \"" . rand(1, 5)     . "\",
+                                                           \"" . rand(1, 5)     . "\",
+                                                           \"" . rand(1, 5)     . "\",
+                                                           \"" . rand(1, 5)     . "\",
+                                                           \"" . rand(1, 5)     . "\",
+                                                           \"" . rand(1, 10)    . "\",
+                                                           \"" . $names[$j]     . "\",
+                                                           \"" . $usernames[$j] . "\")";
                 mysqli_query($serverlink, $sql);
             }
         }
