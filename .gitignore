@@ -1,2 +1,2 @@
-# Ignore changes to variabliable.php
-variables.php
+#ignore server config files
+php/config.php

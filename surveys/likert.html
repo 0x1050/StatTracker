@@ -1,0 +1,53 @@
+<form action="likert.php" method="post" enctype="multipart/form-data">
+	<!-- Half of the students will have the values going left to right
+		and the other half right to left. We can fill the input values 
+		and the label contents with:
+			document.getElementsByClassName("questionA1").value = "value";
+
+		The same goes for the labels and the question:
+			document.getElementsByClassName("l1").innerHTML = "label";
+			document.getElementById("questionA").innerHTML = "question";
+		We'll know which direction the questions go in based on the 
+		direction value in the user's table -->
+	<p id="questionA"></p>
+	<input type="radio" name="questionA" class="input1" value="">
+	<label class="l1"></label>
+        <input type="radio" name="questionA" class="input2" value="">
+        <label class="l2"></label>
+        <input type="radio" name="questionA" class="input3" value="">
+        <label class="l3"></label>
+        <input type="radio" name="questionA" class="input4" value="">
+        <label class="l4"></label>
+        <input type="radio" name="questionA" class="input5" value="">
+        <label class="l5"></label>
+
+	<p id="questionB"></p>
+        <input type="radio" name="questionB" class="input1" value="">
+        <label class="l1"></label>
+        <input type="radio" name="questionB" class="input2" value="">
+        <label class="l2"></label>
+        <input type="radio" name="questionB" class="input3" value="">
+        <label class="l3"></label>
+        <input type="radio" name="questionB" class="input4" value="">
+        <label class="l4"></label>
+        <input type="radio" name="questionB" class="input5" value="">
+        <label class="l5"></label>
+
+        <p id="questionC"></p>
+        <input type="radio" name="questionC" class="input1" value="">
+        <label class="l1"></label>
+        <input type="radio" name="questionC" class="input2" value="">
+        <label class="l2"></label>
+        <input type="radio" name="questionC" class="input3" value="">
+        <label class="l3"></label>
+        <input type="radio" name="questionC" class="input4" value="">
+        <label class="l4"></label>
+        <input type="radio" name="questionC" class="input5" value="">
+        <label class="l5"></label>
+
+        <!-- We do not need a submit button here. The JavaScript will call
+             the next form as soon as there are values entered in each section:
+                 document.getElementById("questionC5").checked == true; -->
+</form>
+
+<script src="/js/surveys.js"></script>
