@@ -18,7 +18,7 @@ the visualizations and the feedback -->
     } else {
         $sql = "DROP TABLE Users";
         mysqli_query($serverlink, $sql);
-        for ( $i = 1; $i < 7; $i++) {
+        for ( $i = 1; $i < 8; $i++) {
             $sql = "DROP TABLE G" . $i;
             mysqli_query($serverlink, $sql);
         }
@@ -67,14 +67,10 @@ the visualizations and the feedback -->
         }
 
                 //Create group tables
-                for ($i = 1; $i < 7; $i++) {
+                for ($i = 1; $i < 8; $i++) {
                 $sql  = "CREATE TABLE IF NOT EXISTS G" . $i;
-                $sql .= "(LikeA INT(1) DEFAULT NULL,";
-                $sql .= "LikeB INT(1) DEFAULT NULL,";
-                $sql .= "likeC INT(1) DEFAULT NULL,";
-                $sql .= "DislikeA INT(1) DEFAULT NULL,";
-                $sql .= "DislikeB INT(1) DEFAULT NULL,";
-                $sql .= "DislikeC INT(1) DEFAULT NULL,";
+                $sql .= "(liked CHAR(1) DEFAULT NULL,";
+                $sql .= "disliked Char(1) DEFAULT NULL,";
                 $sql .= "A1 INT(1) DEFAULT NULL, ";
                 $sql .= "A2 INT(1) DEFAULT NULL,";
                 $sql .= "A3 INT(1) DEFAULT NULL,";
@@ -87,6 +83,7 @@ the visualizations and the feedback -->
                 $sql .= "Scale INT(1) NOT NULL,";
                 $sql .= "FF1 TINYTEXT,";
                 $sql .= "FF2 TINYTEXT)";
+
                 mysqli_query($serverlink, $sql);
 
                 //Populate group tables
@@ -108,8 +105,10 @@ the visualizations and the feedback -->
                     $dislike = "B";
                 else
                     $dislike = "C";
-                $sql = "INSERT G" . $i . "(Like"    . $like    . ",
-                                           Dislike" . $dislike . ",
+
+
+                $sql = "INSERT G" . $i . "(liked,
+                                           disliked,
                                            "        . $like    . "1,
                                            "        . $like    . "2,
                                            "        . $like    . "3,
@@ -118,8 +117,8 @@ the visualizations and the feedback -->
                                            "        . $dislike . "3,
                                            Scale,
                                                FF1,
-                                               FF2) VALUES(\"1\",
-                                                           \"1\",
+                                               FF2) VALUES(\"" . $like          . "\",
+                                                           \"" . $dislike       . "\",
                                                            \"" . rand(1, 5)     . "\",
                                                            \"" . rand(1, 5)     . "\",
                                                            \"" . rand(1, 5)     . "\",
@@ -134,5 +133,6 @@ the visualizations and the feedback -->
         }
 
     mysqli_close($serverlink);
-  }
+    }
+
 ?>
