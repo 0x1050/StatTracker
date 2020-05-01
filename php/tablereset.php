@@ -38,7 +38,7 @@ the visualizations and the feedback -->
         $sql .= "s3           INT(1)      NOT NULL DEFAULT 0,";
         $sql .= "s4           INT(1)      NOT NULL DEFAULT 0,";
         $sql .= "s5           INT(1)      NOT NULL DEFAULT 0,";
-        $sql .= "s6           INT(1)      NOT NULL DEFAULT 0)";
+        $sql .= "s6           INT(1)      NOT NULL DEFAULT 0,";
         $sql .= "s7           INT(1)      NOT NULL DEFAULT 0)";
 
         mysqli_query($serverlink, $sql);
