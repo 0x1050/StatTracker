@@ -1,0 +1,54 @@
+## Technology
+- **<u>Resources used to build the website</u>** ( Category )
+	- Do you agree that the developer used enough resources to build their website? ( Likert )
+		- ( 1 - 5 )
+- **<u>Use of their technologies/Stack (Apache, MySQL, PHP, ETC)</u>** ( Category )
+	- Do you believe they implemented their technologies well? ( Likert )
+		- ( 1 - 5 )
+	- How skillful do you think the team was on their implementation of their technologies?
+		- ( 1 - 5 )
+- **<u>Quality of the resources used for the project</u>** ( Category )
+	- Do you think the quality of the resources used in this website was important? ( Likert )
+		- ( 1 - 5 )
+- **<u>Usage of the database</u>** ( Category )
+	- Do you think the usage of the database is important for this webpage? ( Likert )
+		- ( 1 - 5 )
+
+- **<u>Technologies Used</u>** ( Category )
+	- Do you think the technologies incorporated in this project was useful?
+		- ( 1 - 5 )
+	- How interested are you overall about this website?
+		- ( 1 - 5 )
+## Visual/Design
+- **<u>User-interface</u>** ( Category )
+	- How visually appealing was the website? ( Likert ) ( 1 - Very Appealing, 2 - Appealing, 3 - Okay, 4 - Not Appealing, 5 - Not so Appealing )
+	-
+- **<u>Navigation</u>** ( Category )
+	- How easy was it to find what you were looking for? ( Likert )
+		- ( 1 - Very Easy, 2 - Easy, 3 - Okay, 4 - Not East, 5 - Not so easy )
+	- How did you like the consistency of the navbars design?
+		- ( 1 - 5 )
+	- How easy was it to navigate on the website?
+		- ( 1 - 5 )
+- **<u>Typography</u>** ( Category )
+	- How did you find the quality of the text within the website? // Readable
+		- ( 1 - 5 )
+- **<b>Responsiveness</u>** ( Category )
+	- How well did the website render in your browser or device? // Cross-platform
+		- ( 1 - 5 )
+## Concept/Usefulness
+- **<u>Uniqueness/Originality</u>** ( Category )
+	- How unique/original would you say this project is?
+		- ( 1 - 5 )
+- **<u>Real-world Usefullness</u>** ( Category )
+	- How useful would you say this project is in a real-world setting?
+		- ( 1 - 5 )
+	- How likely are you to recomment your project to someone you know?
+		- ( 1 - 5 )
+- **<u>Marketability</u>** ( Category )
+	- Could you see yourself buying a product like this in the real-world?
+		- ( 1 - 5 )
+	- How likely are you to recommend your project to someone you know?
+		- ( 1 - 5 )
+	- How profitable do you believe this project could possibly become?
+		- ( 1 - 5 )
