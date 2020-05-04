@@ -12,7 +12,7 @@
         $user = $serverlink->real_escape_string($_POST["username"]);
         //Do we use real_escape_string when encrypting the password?
         //Wouldn't that change the passcode?
-        $pass = $serverlink->real_escape_string($_POST["password"]);
+        $pass = $_POST["password"];
 
         //Here we check for the user with the credentials entered
         $usercheck = mysqli_query($serverlink, "SELECT * FROM Users WHERE username=\"$user\"");
@@ -20,7 +20,7 @@
         //This fetches the associations in $usercheck if they exist and returns false if its empty
         if (!empty($userdata = $usercheck->fetch_assoc())) {
             if (password_verify($pass, $userdata["password"])) {
-                echo "All good";
+                header("Location: ../surveys/surveys.html");
             }
             else {
                 echo "Bad password";

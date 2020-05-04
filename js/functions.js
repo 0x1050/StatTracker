@@ -14,6 +14,17 @@ function checkIfPassMatch(txt) {
         document.getElementById("submit").disabled = true;
     }
 }
+
+function resetCheck(txt) {
+    if (username != '' &&
+        email  != '' &&
+        pass1.value == pass2.value &&
+        pass1.value.length >= 8
+       )
+        document.getElementById("submit").disabled = false;
+    else
+        document.getElementById("submit").disabled = true;
+}
 //------------------------------------------------Animation
 //We probably won't call fadeIn() or fadeOut() directly,
 //they are really just helper functions for loadFragment()

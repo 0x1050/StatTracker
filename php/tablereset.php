@@ -25,7 +25,7 @@ the visualizations and the feedback -->
 
         //Create Users table
         $sql  = "CREATE TABLE IF NOT EXISTS Users(";
-        $sql .= "UserID       INT(2)      UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,";
+        $sql .= "userID       INT(2)      UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,";
         $sql .= "username     VARCHAR(20) NOT NULL,";
         $sql .= "email        CHAR(60)    NOT NULL,";
         $sql .= "password     CHAR(60)    NOT NULL,";
