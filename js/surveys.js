@@ -1,97 +1,97 @@
-/***********************************************/
-/************** Categorial Survey **************/
-/***********************************************/
+// DOM Manipulation for Category Questions
+document.getElementById("likeda").innerHTML = "Utilization of Data Gathered";
+document.getElementById("likedb").innerHTML = "Design of the UI (User-interface)";
+document.getElementById("likedc").innerHTML = "Uniqueness/Originality";
 
-// Category function to be called once category.html page is fully loaded
-function category() {
+document.getElementById("dislikeda").innerHTML = "Utilization of Data Gathered";
+document.getElementById("dislikedb").innerHTML = "User-interface";
+document.getElementById("dislikedc").innerHTML = "Uniqueness/Originality";
 
-};
+// Change likert questions values (ascending/descending) depending on users direction
+function checkDirection(userID) {
 
-/***********************************************/
-/**************** Likert Survey ****************/
-/***********************************************/
+	// Stores likert values into array variables
+	var likert1 = document.getElementsByClassName("likert1");
+	var likert2 = document.getElementsByClassName("likert2");
+	var likert3 = document.getElementsByClassName("likert3");
+	var likert4 = document.getElementsByClassName("likert4");
+	var likert5 = document.getElementsByClassName("likert5");
+	var likert6 = document.getElementsByClassName("likert6");
 
-// Likert function to be called once the likert.html page is fully loaded
-function likert() {
-	
-	const LIKERT_QUESTIONS = 3;
+	minVal = 1;
+	maxVal = 5;
 
-	document.getElementById("questionA").innerHTML = "Question A";
-	document.getElementById("questionB").innerHTML = "Question B";
-	document.getElementById("questionC").innerHTML = "Question C";
+	for(var i = 0; i < maxVal; i++) {
 
-	// Creates varaibles containing an array of its respective class
+		if((userID % 2) === 0) {
+			likert1[i].value = i + minVal;
+			likert2[i].value = i + minVal;
+			likert3[i].value = i + minVal;
+			likert4[i].value = i + minVal;
+			likert5[i].value = i + minVal;
+		} else {
+			likert1[i].value = maxVal - i;
+			likert2[i].value = maxVal - i;
+			likert3[i].value = maxVal - i;
+			likert4[i].value = maxVal - i;
+			likert5[i].value = maxVal - i;
+		}
+	}
+}
+
+// Serve appropriate likert questions given the users category answers
+function checkCategory(like, dislike) {
+
+	// Stores likertliked elements into variables
+	var liked1 = document.getElementById("likertliked1").innerHTML = "";
+	var liked2 = document.getElementById("likertliked2").innerHTML = "";
+	var liked3 = document.getElementById("likertliked3").innerHTML = "";
+
+	// Stores likertdisliked elements into variables
+	var disliked1 = document.getElementById("likertdisliked1").innerHTML = "";
+	var disliked2 = document.getElementById("likertdisliked2").innerHTML = "";
+	var disliked3 = document.getElementById("likertdisliked3").innerHTML = "";
+
+	// Stores likert labels into array variables
 	var l1 = document.getElementsByClassName("l1");
 	var l2 = document.getElementsByClassName("l2");
 	var l3 = document.getElementsByClassName("l3");
 	var l4 = document.getElementsByClassName("l4");
 	var l5 = document.getElementsByClassName("l5");
+	var l6 = document.getElementsByClassName("l6");
 
-	// Iterates through each likert class array and modifies each element to their appropriate values
-	for(let i = 0; i <= LIKERT_QUESTIONS; i++) {
-		// Question Labels
-		l1[i].innerHTML = "Strongly Disagree";
-		l2[i].innerHTML = "Disagree";
-		l3[i].innerHTML = "Neutral";
-		l4[i].innerHTML = "Agree";
-		l5[i].innerHTML = "Strongly Agree";
+	if(like === 'A') {
+		// Serve User Like A Likert Question
+		liked1.innerHTML = "";
+		liked2.innerHTML = "";
+		liked3.innerHTML = "";
 
-		// Question Values
-		l1[i].value = "strongly_disagree";
-		l2[i].value = "disagree";
-		l3[i].value = "neutral";
-		l4[i].value = "agree";
-		l5[i].value = "strongly_agree";
+	} else if(like = 'B') {
+		// Serve User Like B Likert Question
+		liked1.innerHTML = "";
+		liked2.innerHTML = "";
+		liked3.innerHTML = "";
+	} else if(like = 'C') {
+		// Serve User Like C Likert Question
+		liked1.innerHTML = "";
+		liked2.innerHTML = "";
+		liked3.innerHTML = "";
 	}
 
-};
-
-/***********************************************/
-/**************** Rating Survey ****************/
-/***********************************************/
-
-// Rating function to be called once rating.html page is fully loaded
-function rating() {
-
-	const MAX_RATING = 10;
-
-	document.getElementById("rating").innerHTML = "How would you rate this project from 1-10?";
-	
-	// TO DO: Modify this loop?
-	for(let i = 0; i < MAX_RATING; i++)
-	{
-		document.getElementById("rate" + (i + 1)).innerHTML = (i + 1);
-		document.getElementById("rate" + (i + 1)).value = "rate" + (i + 1);
+	if(dislike === 'A') {
+		// Serve User Disike A Likert Question
+		disliked1.innerHTML = "";
+		disliked2.innerHTML = "";
+		disliked3.innerHTML = "";
+	} else if(dislike = 'B') {
+		// Serve User Dislike B Likert Question
+		disliked1.innerHTML = "";
+		disliked2.innerHTML = "";
+		disliked3.innerHTML = "";
+	} else if(dislike = 'C') {
+		// Serve User Disike C Likert Question
+		disliked1.innerHTML = "";
+		disliked2.innerHTML = "";
+		disliked3.innerHTML = "";
 	}
-};
-
-/***********************************************/
-/*************** Freeform Survey ***************/
-/***********************************************/
-
-// Freeform function to be called once freeform.html page is fully loaded
-function freeform() {
-	document.getElementById("ff1").innerHTML = "Freeform Question 1";
-	document.getElementById("ff2").innerHTML = "Freeform Question 2";
-};
-
-// TO DO:``
-// - Create a functions that runs the appropriate functions once the given html page is loaded
-
-/************************************************/
-/*********** Survey Functions Handler ***********/
-/************************************************/
-
-var page = window.location.pathname.split("/").pop();
-
-window.onload = function() {
-	if(page === "category.html") {
-		category();
-	} else if(page === "likert.html") {
-		likert();
-	} else if(page === "rating.html") {
-		rating();
-	} else if(page === "freeform.html") {
-		freeform();
-	}
-}	
+}
