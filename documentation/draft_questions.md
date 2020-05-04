@@ -33,7 +33,7 @@
 - **<u>Typography</u>** ( Category )
 	- How did you find the quality of the text within the website? // Readable
 		- ( 1 - 5 )
-- **<b>Responsiveness</u>** ( Category )
+- **<u>Responsiveness</u>** ( Category )
 	- How well did the website render in your browser or device? // Cross-platform
 		- ( 1 - 5 )
 ## Concept/Usefulness
