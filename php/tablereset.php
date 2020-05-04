@@ -31,15 +31,12 @@ the visualizations and the feedback -->
         $sql .= "password     CHAR(60)    NOT NULL,";
         $sql .= "groupNumber  INT(1)      NOT NULL,";
         $sql .= "theme        INT(1)      NOT NULL DEFAULT 1,";
-        $sql .= "active       INT(1)      NOT NULL DEFAULT 0,";
-        $sql .= "stayLoggedIn INT(1)      NOT NULL DEFAULT 0,";
-        $sql .= "s1           INT(1)      NOT NULL DEFAULT 0,";
-        $sql .= "s2           INT(1)      NOT NULL DEFAULT 0,";
-        $sql .= "s3           INT(1)      NOT NULL DEFAULT 0,";
-        $sql .= "s4           INT(1)      NOT NULL DEFAULT 0,";
-        $sql .= "s5           INT(1)      NOT NULL DEFAULT 0,";
-        $sql .= "s6           INT(1)      NOT NULL DEFAULT 0,";
-        $sql .= "s7           INT(1)      NOT NULL DEFAULT 0)";
+        $sql .= "stage        INT(1)      NOT NULL DEFAULT 0)";
+
+        echo "<br>CREATE TABLE IF NOT EXISTS Users(userID INT(2) UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,username VARCHAR(20) NOT NULL,email CHAR(60) NOT NULL,password CHAR(60) NOT NULL,groupNumber INT(1) NOT NULL,theme INT(1) NOT NULL DEFAULT 1,stage INT(1) NOT NULL DEFAULT 0)";
+
+        echo "<br>";
+        echo $sql;
 
         mysqli_query($serverlink, $sql);
 
@@ -54,16 +51,10 @@ the visualizations and the feedback -->
             $sql = "INSERT INTO Users(username,
                                       email,
                                       password,
-                                      groupNumber,
-                                      theme,
-                                      active,
-                                      stayLoggedIn) VALUES(\"$usernames[$i]\",
+                                      groupNumber) VALUES(\"$usernames[$i]\",
                                                            \"$email\",
                                                            \"$passhash\",
-                                                           \"$id\",
-                                                           \"1\",
-                                                           \"1\",
-                                                           \"1\")";
+                                                           \"$id\")";
             mysqli_query($serverlink, $sql);
         }
 

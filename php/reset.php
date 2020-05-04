@@ -1,7 +1,11 @@
 <?php 
 
 // Check if the submit is set from reset.html
-if(isset($_POST["reset"])) {
+if(!isset($_POST["reset"])) {
+    header("Location: ../index.html");
+    exit();
+}
+else {
 
     // Import server variables
     require_once 'config.php';
@@ -48,10 +52,7 @@ if(isset($_POST["reset"])) {
             header("Location: ../surveys/surveys.html");
         }
     }
-
+    mysqli_stmt_close($stmt);
+    mysqli_close($conn);
 }
-
-mysqli_stmt_close($stmt);
-mysqli_close($conn);
-
 ?>
