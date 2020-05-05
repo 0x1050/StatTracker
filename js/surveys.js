@@ -96,15 +96,51 @@ function checkCategory(like, dislike) {
 	}
 }
 
-function disableInput(value) { 	
-	if(value === 'A') { 
-		document.getElementById("disliked1").disable = true;
-		document.getElementBydId("liked1").disable = true; 	
-	} else if(value === 'B') { 
-		document.getElementBydId("disliked2").disable = true;
-		document.getElementById("liked2").disable = true; 	
-	} else if(value ==='C') { 
-		document.getElementById("disliked3").disable = true;
-		document.getElementById("liked3").disable = true;
-	} 
+// Disable opposite radio buttons for Category Questions
+function disableInput(liked, disliked) {
+
+	// Function to re-enable radio buttons
+	(function enable() {
+		document.getElementById("liked1").disabled = false;
+		document.getElementById("liked2").disabled = false;
+		document.getElementById("liked3").disabled = false;
+		document.getElementById("disliked1").disabled = false;
+		document.getElementById("disliked2").disabled = false;
+		document.getElementById("disliked3").disabled = false;
+	})();
+
+	// Condition statements to disable and uncheck opposite radio buttons
+	if(liked == 'A') {
+		(function disable() {
+			document.getElementById("disliked1").disabled = true;
+			document.getElementById("disliked1").checked = false;
+		})();
+	} else if(liked == 'B') {
+		(function disable() {
+			document.getElementById("disliked2").disabled = true;
+			document.getElementById("disliked2").checked = false;
+		})();
+	} else if(liked == 'C') {
+		(function disable() {
+			document.getElementById("disliked3").disabled = true;
+			document.getElementById("disliked3").checked = false;
+		})();
+	}
+
+	if(disliked == 'A') {
+		(function disable() {
+			document.getElementById("liked1").disabled = true;
+			document.getElementById("liked1").checked = false;
+		})();
+	} else if(disliked == 'B') {
+		(function disable() {
+			document.getElementById("liked2").disabled = true;
+			document.getElementById("liked2").checked = false;
+		})();
+	} else if(disliked == 'C') {
+		(function disable() {
+			document.getElementById("liked3").disabled = true;
+			document.getElementById("liked3").checked = false;
+		})();
+	}
 }
