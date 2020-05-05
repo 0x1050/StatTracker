@@ -45,7 +45,7 @@ else {
                 \"" . $group                                             . "\",
                 \"1\")");
             //Send user to survey
-            header("Location: ../surveys/surveys.html");
+            header("Location: ../forms/surveys.html");
             exit();
         }
     }
