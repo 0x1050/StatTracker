@@ -15,8 +15,8 @@ require_once 'php/config.php';
         <meta charset="utf-8">
         <title></title>
         <link rel="stylesheet" href="css/main.css">
-    <script src="js/forms.js"></script>
-    <script src="js/functions.js"></script>
+        <script src="js/functions.js"></script>
+        <script>window.onload = function() { loadFragment("forms/surveys.html", document.getElementById("form", 1));} </script>
     </head>
     <body>
 <a href="php/logout.php">log out</a>
