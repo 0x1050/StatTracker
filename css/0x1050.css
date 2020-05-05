@@ -7,13 +7,13 @@
 
 /* Define variables for color */
 :root {
-    --main: #242424;
+    --main: #000000;
     --dark-main: #202020;
-    --alternate-compliment: #ab0;
+    --alternate-compliment:  #cc0000;
     --text: #fff;
     --links: #ff0;
-    --alternate: #404040;
-    --compliment: #aa3442;
+    --alternate: #000000;
+    --compliment: #007c89;
 }
 
 /* Element coloring */
@@ -28,7 +28,7 @@ h1 {
     color: var(--compliment);
 }
 a {
-    color: var(--links);
+    color: #3498db;
 }
 
 p {
@@ -39,7 +39,7 @@ h2 {
 }
 
 table {
-    background-color: var(--compliment);
+    background-color: #000000;
     border-color: var(--text);
 }
 th {
@@ -47,8 +47,8 @@ th {
 }
 
 tr {
-    background-color: var(--links);
-    color: var(--main)
+    background-color: #000000;
+    text-color: var(--main);
 }
 
 tr a {
@@ -73,7 +73,7 @@ ul li ul {
 
 /* Typography */
 body {
-    font-family: "Open Sans;
+    font-family: "Open San";
 }
 
 h1 {
@@ -116,7 +116,7 @@ ul li a {
 }
 
 ul li a:hover {
-    color: #fff;
+    color: #f90606;
 }
 
 ul li ul.dropdown {
