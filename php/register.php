@@ -1,4 +1,5 @@
 <?php
+session_start();
 if (!isset($_POST['register'])) {
     header("Location: ../index.html");
     exit();
@@ -6,7 +7,7 @@ if (!isset($_POST['register'])) {
 else {
     require_once 'config.php';
     $user = mysqli_real_escape_string($conn, $_POST["username"]);
-    $email = mysqli_real_escape_string($conn, $_POST['email']);
+    $email = password_hash($_POST['email'], PASSWORD_BCRYPT);
     $group = mysqli_real_escape_string($conn, $_POST['group']);
     $password = password_hash($_POST['pass1'], PASSWORD_BCRYPT);
 
@@ -34,11 +35,18 @@ else {
             exit();
         }
         else {
+            session_regenerate_id(true);
+            //Create user, get primary ID
             $sql = "Insert INTO Users(username,  email,      password,      groupNumber, theme)
                                VALUES(\"$user\", \"$email\", \"$password\", \"$group\",  \"1\")";
-            echo $sql;
             mysqli_query($conn, $sql);
-            header("Location: ../forms/surveys.html");
+            $uid = $conn->insert_id;
+            //Create Token row
+            $token = $_SESSION['token'];
+            $sql = "INSERT INTO Tokens(uid, token) VALUES(\"$uid\", \"token\")";
+            mysqli_query($conn, $sql);
+            mysqli_close($conn);
+            header("Location: ../surveys.html");
             exit();
         }
     }
