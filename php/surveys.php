@@ -31,7 +31,6 @@ $ff2 = filter_input(INPUT_POST, 'ff2');
     # Mysqli_connect_errno() Returns the error code from last connect call.
     # Mysqli_connect_error() Returns a string description of the last connect error.
     
-$connection = new mysqli ($server, $admin, $adminpass, $database);
 if(mysqli_connect_error())
     {
         die('Error Connecting ('.mysqli_connect_errno().')'
@@ -53,7 +52,7 @@ else {
            \"" . $ff1 . "\",
            \"" . $ff2 . "\")";
            
-           if($connection->query($sql))
+           if($conn->query($sql))
            {
            echo "Success";
            }
@@ -62,6 +61,6 @@ else {
            echo "Failed";
            }
            
-        $connection->close();
+        $conn->close();
     }
 ?>
