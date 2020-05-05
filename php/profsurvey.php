@@ -29,7 +29,7 @@ if(!isset($_POST['submit'])) {
 		exit();
 
 	} else {
-		header("Location: ../index.php?error=notprepared")
+        header("Location: ../index.php?error=notprepared");
 	}
 	header("Location: ../index.php/?error=errdatabase");
 	exit();
