@@ -1,5 +1,6 @@
 <?php 
 if(!isset($_POST["reset"])) {
+    mysqli_close($conn);
     header("Location: ../index.html");
     exit();
 }
@@ -22,15 +23,17 @@ else {
             mysqli_stmt_execute($stmt);
             mysqli_stmt_close($stmt);
             mysqli_close($conn);
-            header("Location: ../surveys/surveys.html");
+            header("Location: ../forms/surveys.html");
             exit();
         }
         else { //stmt not prepared
+            mysqli_close($conn);
             header("Location: ../index.php?origin=reset.php");
             exit();
         }
     }
     else {
+        mysqli_close($conn);
         header("Location: ../index.php?origin=reset.php");
         exit();
     }
