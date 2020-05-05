@@ -13,6 +13,7 @@ require_once 'config.php';
 require_once 'users.php';
 
 $sql = "DROP TABLE Users";
+mysqli_query($conn, $sql);
 $sql = "DROP TABLE Tokens";
 mysqli_query($conn, $sql);
 for ( $i = 1; $i < 8; $i++) {
