@@ -1,30 +1,34 @@
 <?php
-//Dumb check for origin
+session_start();
 if (!isset($_POST["login"])) {
     header("Location: ../index.php");
     exit();
 }
 else {
     require 'config.php';
-
-    $user = $conn->real_escape_string($_POST["username"]);
-
-    //Here we check for the user with the credentials entered
+    $user = mysqli_real_escape_string($conn, $_POST["username"]);
+    $pass = mysqli_real_escape_string($conn, $_POST['password']);
     $usercheck = mysqli_query($conn, "SELECT * FROM Users WHERE username=\"$user\"");
-
-    //This fetches the associations in $usercheck, and sends
-    //the user back to the index if it is empty
-    if (!empty($userdata = $usercheck->fetch_assoc())) {
-        if (password_verify($pass, $_POST["password"])) {
-            header("Location: ../surveys/surveys.html");
+    $sql = "SELECT userID, password FROM Users WHERE username=\"$user\"";
+    $userCheck = mysqli_query($conn, $sql);
+    if (!empty($userRow = $userCheck->fetch_assoc())) {
+        if (password_verify($pass, $userRow["password"])) {
+            $token = $_SESSION['token'];
+            $uid = $userRow['userID'];
+            $sql = "INSERT INTO Tokens(uid, token) VALUES(\"$uid\", \"$token\")";
+            mysqli_query($conn, $sql);
+            mysqli_close($conn);
+            header("Location: ../surveys.php");
             exit();
         }
         else {
+            mysqli_close($conn);
             header("Location: ../index.php?origin=log&err=1");
             exit();
         }
     }
     else {
+        mysqli_close($conn);
         header("Location: ../index.php?origin=log");
         exit();
     }

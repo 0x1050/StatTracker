@@ -122,7 +122,7 @@ for ($i = 1; $i < 8; $i++) {
     }
 }
 
-$sql = "CREATE TABLE Tokens(uid int(2), token CHAR(64))";
+$sql = "CREATE TABLE Tokens(uid int(2), token CHAR(128))";
 mysqli_query($conn, $sql);
 
 mysqli_close($conn);
