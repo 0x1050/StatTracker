@@ -1,19 +1,19 @@
 <?php
-$dataUse = array (
-    "A" => "A1",
-    "B" => "A2",
-    "C" => "A3",
+$A = array (
+    "1" => "The group used the technologies that we learned in class effectively",
+    "2" => "The had a compelling reason to use a database",
+    "3" => "The data in the project was normalized efficiently",
     "S" => "The way the project uses the data that it gathers"
 );
-$UI = array (
-    "A" => "This project was visually appealing to me",
-    "B" => "B2",
-    "C" => "B3",
+$B = array (
+    "1" => "The use of type on this page helped with the user experience",
+    "2" => "The website looked right on all my devices",
+    "3" => "The use of color was intriguing",
     "S" => "The user interface"
 );
-$uniqueness = array (
-    "A" => "C1",
-    "B" => "C2",
-    "C" => "C3",
+$C = array (
+    "1" => "This is a very original use of technology",
+    "2" => "There is a lot of value in this project",
+    "3" => "It was fun to use this project",
     "S" => "The originality and uniqueness of the project"
 );
