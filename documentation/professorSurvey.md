@@ -43,14 +43,15 @@ Information below will include the questions included in the survey as well as a
 #### Create ProfData SQL Table:
 Run with **MySQL** in your ***terminal*** or ***PHPMYADMIN***:
 ```SQL
-CREATE TABLE ProfData(	Content		INT(1)	NOT NULL,
-			BeforeDL	INT(1)	NOT NULL,
-			AfterDL		INT(1)	NOT NULL,
-			Knowledge	INT(1)	NOT NULL,
-			Interest	INT(1)	NOT NULL,
-			Difficulty	INT(1)	NOT NULL,
-			Contribution	INT(1)	NOT NULL,
-			Evaluation	INT(1)	NOT NULL,
-			Learned		INT(1)	NOT NULL
-			);
+CREATE TABLE ProfData(    Content        INT(1)    NOT NULL,
+            BeforeDL    INT(1)    NOT NULL,
+            AfterDL        INT(1)    NOT NULL,
+            Knowledge    INT(1)    NOT NULL,
+            Interest    INT(1)    NOT NULL,
+            Difficulty    INT(1)    NOT NULL,
+            Leader        INT(1)    NOT NULL,
+            Contribution    INT(1)    NOT NULL,
+            Evaluation    INT(1)    NOT NULL,
+            Learned        INT(1)    NOT NULL,
+            );
 ```
