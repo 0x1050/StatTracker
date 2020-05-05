@@ -1,0 +1,206 @@
+@import url("0x1050fonts.css");
+/* Ghetto reset, just kill all paddings and margins */
+* {
+    margin: 0;
+    padding: 0;
+}
+
+/* Define variables for color */
+:root {
+    --main: #242424;
+    --dark-main: #202020;
+    --alternate-compliment: #ab0;
+    --text: #fff;
+    --links: #ff0;
+    --alternate: #404040;
+    --compliment: #aa3442;
+}
+
+/* Element coloring */
+body {
+    background-color: var(--main);
+    color: var(--text);
+}
+#nav {
+    background-color: var(--dark-main);
+}
+h1 {
+    color: var(--compliment);
+}
+a {
+    color: var(--links);
+}
+
+p {
+    background-color: var(--alternate);
+}
+h2 {
+    color: var(--alternate-compliment);
+}
+
+table {
+    background-color: var(--compliment);
+    border-color: var(--text);
+}
+th {
+    background-color: var(--alternate-compliment);
+}
+
+tr {
+    background-color: var(--links);
+    color: var(--main)
+}
+
+tr a {
+    color: var(--alternate-compliment)
+}
+
+input {
+    background-color: var(--compliment);
+    color: var(--text);
+}
+
+textarea {
+    background-color: var(--compliment);
+    color: var(--text);
+}
+
+ul li ul {
+    background-color: var(--dark-main);
+}
+
+
+
+/* Typography */
+body {
+    font-family: "Open Sans;
+}
+
+h1 {
+    font-family: "permanent marker";
+    font-size: 2em;
+}
+
+p {
+    text-align: justify;
+    line-height: 1.8rem;
+}
+#nav {
+    text-align: center;
+}
+
+
+/* Positioning */
+#nav {
+    position: fixed;
+    top: 0;
+}
+
+ul {
+    min-width: 100%;
+    padding: 0;
+    list-style: none;
+}
+
+ul li {
+    display: inline-block;
+    position: relative;
+    line-height: 21px;
+    text-align: left;
+}
+
+ul li a {
+    display: block;
+    padding: 8px 25px;
+    text-decoration: none;
+}
+
+ul li a:hover {
+    color: #fff;
+}
+
+ul li ul.dropdown {
+    min-width: 100%;
+    display: none;
+    position: absolute;
+    z-index: 999;
+    left: 0;
+}
+
+ul li:hover ul.dropdown {
+    display: block;
+}
+ul li ul.dropdown li{
+    display: block;
+}
+
+#content {
+    margin-left: auto;
+    margin-right: auto;
+    width: 80%;
+    margin-top: 3em;
+}
+
+p {
+    padding: 1em;
+    text-indent: 1em;
+}
+
+
+table {
+    padding: 1rem;
+}
+
+pre code {
+    display: block;
+    text-align: left;
+}
+
+h1 {
+}
+h2 {
+    text-align: right;
+}
+
+input {
+    width: 100%;
+}
+textarea {
+    width:35%;
+    margin: 3em;
+    padding: 1em;
+}
+
+button {
+    width: 5em;
+}
+
+input[type="button"] {
+    width: 32%;
+    border: 0;
+    padding-top: .5em;
+    padding-bottom: .5em;
+}
+input[type="button"]:hover {
+}
+
+select {
+    border: 0;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    width: 50%;    
+}
+
+/* Document Object Model */
+input, textarea, select {
+    border: 0;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+}
+table {
+    border: 2px solid;
+    padding: 3px;
+}

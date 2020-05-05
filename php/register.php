@@ -1,30 +1,53 @@
 <?php
-require_once 'config.php';
-$username = filter_input(INPUT_POST, 'username');
-$email = filter_input(INPUT_POST, 'email');
-$group = filter_input(INPUT_POST, 'group');
-$password = filter_input(INPUT_POST, 'password');
-//creating a connection with  database
-//mysqli_connect_errno() Returns the error code from last connect call
-//mysqli_connect_error() Returns a string description of the last connect error
-$connection = new mysqli ($server, $admin, $adminpass, $database);
-if(mysqli_connect_error()){
-  die('Error Connecting ('.mysqli_connect_errno().')'
-    .mysqli_connect_error());
+if (!isset($_POST['register'])) {
+    header("Location: ../index.html");
+    exit();
 }
-
 else {
-	//Don't forget to check against email
-        $password_hash = password_hash($password, PASSWORD_BCRYPT);
-        $email_encrypt = password_hash($email, PASSWORD_BCRYPT);
-        $sql = "INSERT INTO Users(username, email, groupNumber, password)
-        values ('$username', '$email_encrypt', '$group', '$password_hash')";
-        if($connection->query($sql)){
-            echo "New data has been inserted succesfully";
+    require_once 'config.php';
+
+    $user = mysqli_real_escape_string($conn, $_POST["username"]);
+    $group = filter_input(INPUT_POST, 'group');
+
+    //Next we create a query to check if the user exist in the database
+    $checkForUser = mysqli_query($conn, "SELECT username FROM Users WHERE username=\"$user\"");
+    //Fetch associations
+    if (!empty($checkForUser->fetch_assoc())) { // if this returns not empty, that means the user exists
+        header("Location: ../index.php?origin=reg&err=bd");
+        exit();
+    }
+    else { //User does not exist, proceed to verify email address
+        //Gather email hashes from database
+        $hashes = mysqli_query($conn, "SELECT email FROM Users");
+        $emailFound = false;
+
+        //Check for email, stop when found
+        while ($row = mysqli_fetch_array($hashes)) {
+            if (password_verify($email,  $row["email"])) {
+                $emailFound = true;
+                break;
+            }
+        }
+
+        if ($emailFound) {
+            header("Location: ../index.php?origin=reg&err=bc");
+            exit();
         }
         else {
-            echo "Some error has occurred".$sql."<br>".$connection->error;
+            //We want to randomize the theme number at some point
+            mysqli_query($conn, "Insert INTO Users(username,
+                email,
+                password,
+                groupNumber,
+                theme) VALUES(\"" . $user                                . "\",
+                \"" . password_hash($_POST["email"], PASSWORD_BCRYPT)    . "\",
+                \"" . password_hash($_POST["password"], PASSWORD_BCRYPT) . "\",
+                \"" . $group                                             . "\",
+                \"1\")");
+            //Send user to survey
+            header("Location: ../surveys/surveys.html");
+            exit();
         }
-        $connection->close();
     }
+}
 ?>

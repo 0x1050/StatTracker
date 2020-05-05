@@ -18,27 +18,25 @@ the visualizations and the feedback -->
     } else {
         $sql = "DROP TABLE Users";
         mysqli_query($serverlink, $sql);
-        for ( $i = 1; $i < 7; $i++) {
+        for ( $i = 1; $i < 8; $i++) {
             $sql = "DROP TABLE G" . $i;
             mysqli_query($serverlink, $sql);
         }
 
         //Create Users table
         $sql  = "CREATE TABLE IF NOT EXISTS Users(";
-        $sql .= "UserID       INT(2)      UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,";
+        $sql .= "userID       INT(2)      UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,";
         $sql .= "username     VARCHAR(20) NOT NULL,";
         $sql .= "email        CHAR(60)    NOT NULL,";
         $sql .= "password     CHAR(60)    NOT NULL,";
         $sql .= "groupNumber  INT(1)      NOT NULL,";
         $sql .= "theme        INT(1)      NOT NULL DEFAULT 1,";
-        $sql .= "active       INT(1)      NOT NULL DEFAULT 0,";
-        $sql .= "stayLoggedIn INT(1)      NOT NULL DEFAULT 0,";
-        $sql .= "s1           INT(1)      NOT NULL DEFAULT 0,";
-        $sql .= "s2           INT(1)      NOT NULL DEFAULT 0,";
-        $sql .= "s3           INT(1)      NOT NULL DEFAULT 0,";
-        $sql .= "s4           INT(1)      NOT NULL DEFAULT 0,";
-        $sql .= "s5           INT(1)      NOT NULL DEFAULT 0,";
-        $sql .= "s6           INT(1)      NOT NULL DEFAULT 0)";
+        $sql .= "stage        INT(1)      NOT NULL DEFAULT 0)";
+
+        echo "<br>CREATE TABLE IF NOT EXISTS Users(userID INT(2) UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,username VARCHAR(20) NOT NULL,email CHAR(60) NOT NULL,password CHAR(60) NOT NULL,groupNumber INT(1) NOT NULL,theme INT(1) NOT NULL DEFAULT 1,stage INT(1) NOT NULL DEFAULT 0)";
+
+        echo "<br>";
+        echo $sql;
 
         mysqli_query($serverlink, $sql);
 
@@ -53,28 +51,18 @@ the visualizations and the feedback -->
             $sql = "INSERT INTO Users(username,
                                       email,
                                       password,
-                                      groupNumber,
-                                      theme,
-                                      active,
-                                      stayLoggedIn) VALUES(\"$usernames[$i]\",
+                                      groupNumber) VALUES(\"$usernames[$i]\",
                                                            \"$email\",
                                                            \"$passhash\",
-                                                           \"$id\",
-                                                           \"1\",
-                                                           \"1\",
-                                                           \"1\")";
+                                                           \"$id\")";
             mysqli_query($serverlink, $sql);
         }
 
                 //Create group tables
-                for ($i = 1; $i < 7; $i++) {
+                for ($i = 1; $i < 8; $i++) {
                 $sql  = "CREATE TABLE IF NOT EXISTS G" . $i;
-                $sql .= "(LikeA INT(1) DEFAULT NULL,";
-                $sql .= "LikeB INT(1) DEFAULT NULL,";
-                $sql .= "likeC INT(1) DEFAULT NULL,";
-                $sql .= "DislikeA INT(1) DEFAULT NULL,";
-                $sql .= "DislikeB INT(1) DEFAULT NULL,";
-                $sql .= "DislikeC INT(1) DEFAULT NULL,";
+                $sql .= "(liked CHAR(1) DEFAULT NULL,";
+                $sql .= "disliked Char(1) DEFAULT NULL,";
                 $sql .= "A1 INT(1) DEFAULT NULL, ";
                 $sql .= "A2 INT(1) DEFAULT NULL,";
                 $sql .= "A3 INT(1) DEFAULT NULL,";
@@ -87,6 +75,7 @@ the visualizations and the feedback -->
                 $sql .= "Scale INT(1) NOT NULL,";
                 $sql .= "FF1 TINYTEXT,";
                 $sql .= "FF2 TINYTEXT)";
+
                 mysqli_query($serverlink, $sql);
 
                 //Populate group tables
@@ -108,8 +97,10 @@ the visualizations and the feedback -->
                     $dislike = "B";
                 else
                     $dislike = "C";
-                $sql = "INSERT G" . $i . "(Like"    . $like    . ",
-                                           Dislike" . $dislike . ",
+
+
+                $sql = "INSERT G" . $i . "(liked,
+                                           disliked,
                                            "        . $like    . "1,
                                            "        . $like    . "2,
                                            "        . $like    . "3,
@@ -118,8 +109,8 @@ the visualizations and the feedback -->
                                            "        . $dislike . "3,
                                            Scale,
                                                FF1,
-                                               FF2) VALUES(\"1\",
-                                                           \"1\",
+                                               FF2) VALUES(\"" . $like          . "\",
+                                                           \"" . $dislike       . "\",
                                                            \"" . rand(1, 5)     . "\",
                                                            \"" . rand(1, 5)     . "\",
                                                            \"" . rand(1, 5)     . "\",
@@ -134,5 +125,6 @@ the visualizations and the feedback -->
         }
 
     mysqli_close($serverlink);
-  }
+    }
+
 ?>

@@ -1,57 +1,38 @@
 <?php 
-
-// Check if the submit is set from reset.html
-if(isset($_POST["reset"])) {
-
-	// Import server variables
-	require_once 'config.php';
-
-	// Create connection to the database
-	$conn = mysqli_connect($server, $admin, $adminpass, $database);
-	// Check connection to the database
-	if(!$conn) {
-		die("Error: " . mysqli_connect_error() . "\n" . mysqli_connect_errno());
-	}
-
-	// Local variables
-	$username = mysqli_real_escape_string($conn, $_POST['username']);
-	$email = mysqli_real_escape_string($conn, $_POST['email']);
-	$new_password = mysqli_real_escape_string($conn, $_POST['new_password']);
-
-	// Set a verification flag to validate for username and email
-	$verification = false;
-
-	// Iterate through the database, validate if username and email exists and exit the loop once found
-	foreach(mysqli_query($conn, 'SELECT username, email FROM Users') as $user) {
-		if((password_verify($email, $user['email']) && ($username === $user["username"]))) {
-			$verification = true;
-			break;
-		}
-	}
-
-	// Check verification flag
-	if($verification === false) {
-		die("Error: Username/Email does not exist");
-	} else {
-		// Update query template
-		$sql = "UPDATE Users SET password=? WHERE username=?;";
-		// Create a prepared statement for the update query
-		$stmt = mysqli_stmt_init($conn);
-		// Prepare the prepared statement for the update query
-		if(!mysqli_stmt_prepare($stmt, $sql)) {
-			die(print_r(mysqli_stmt_error($stmt)));
-		} else {
-			// Create new hashed password using bcrypt
-			$new_hashed_pw = password_hash($new_password, PASSWORD_BCRYPT);
-			// Bind parameters to the placeholder for the update query
-			mysqli_stmt_bind_param($stmt, "ss", $new_hashed_pw, $username);
-			mysqli_stmt_execute($stmt);
-		}
-	}
-
+if(!isset($_POST["reset"])) {
+    header("Location: ../index.html");
+    exit();
 }
+else {
+    require_once 'config.php';
+    $username = mysqli_real_escape_string($conn, $_POST['username']);
+    $email = mysqli_real_escape_string($conn, $_POST['email']);
+    $new_password = password_hash($_POST['pass1'], PASSWORD_BCRYPT);
 
-mysqli_stmt_close($stmt);
-mysqli_close($conn);
-
+    //We don't need to iterate through the entire database considering the fact
+    //that we stored the username as plaintext
+    $emailCheck = mysqli_query($conn, "SELECT username, email FROM Users WHERE username = \"$username\"");
+    if (!empty($userRow = $emailCheck->fetch_assoc())) {
+        // Update query template
+        $sql = "UPDATE Users SET password=? WHERE username=?;";
+        // Create a prepared statement for the update query
+        $stmt = mysqli_stmt_init($conn);
+        if(mysqli_stmt_prepare($stmt, $sql)) {
+            mysqli_stmt_bind_param($stmt, "ss", $new_password, $username);
+            mysqli_stmt_execute($stmt);
+            mysqli_stmt_close($stmt);
+            mysqli_close($conn);
+            header("Location: ../surveys/surveys.html");
+            exit();
+        }
+        else { //stmt not prepared
+            header("Location: ../index.php?origin=reset.php");
+            exit();
+        }
+    }
+    else {
+        header("Location: ../index.php?origin=reset.php");
+        exit();
+    }
+}
 ?>
