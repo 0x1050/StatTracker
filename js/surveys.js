@@ -95,3 +95,16 @@ function checkCategory(like, dislike) {
 		disliked3.innerHTML = "Dislike C3";
 	}
 }
+
+function disableInput(value) { 	
+	if(value === 'A') { 
+		document.getElementById("disliked1").disable = true;
+		document.getElementBydId("liked1").disable = true; 	
+	} else if(value === 'B') { 
+		document.getElementBydId("disliked2").disable = true;
+		document.getElementById("liked2").disable = true; 	
+	} else if(value ==='C') { 
+		document.getElementById("disliked3").disable = true;
+		document.getElementById("liked3").disable = true;
+	} 
+}
