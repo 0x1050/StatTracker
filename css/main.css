@@ -1,8 +1,3 @@
-/*Please make sure that any elements that are meant to
-  fade in and out of the page have their display property
-  set to none in order to allow JS to manipulate them properly*/
-
-
 #form {
     display: none;
     background-color: #ccc;

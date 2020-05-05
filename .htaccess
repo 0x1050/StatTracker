@@ -1,5 +1,6 @@
 <IfModule mod_rewrite.so>
   RewriteEngine On 
+  RewriteBase "/StatTracker/"
   RewriteCond %{REQUEST_FILENAME} !-f
-  RewriteRule . /index.php [L]
+  RewriteRule "^(.*)" "index.php" [L]
 </IfModule>
