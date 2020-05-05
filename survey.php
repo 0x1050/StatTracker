@@ -7,6 +7,14 @@ if (!isset($_SESSION['token'])) {
     exit();
 }
 require_once 'php/config.php';
+
+$token = $_SESSION["token"];
+$uid = mysqli_query($conn, "SELECT uid from Tokens WHERE token = \"$token\"")->fetch_assoc()['uid'];
+$userdata = mysqli_query($conn, "SELECT * FROM Users WHERE userID = \"$uid\"")->fetch_assoc();
+
+
+echo "Welcome, " . $userdata['username'] . "<br>";
+
 ?>
 
 <!DOCTYPE html>
@@ -17,6 +25,7 @@ require_once 'php/config.php';
         <link rel="stylesheet" href="css/main.css">
         <script src="js/functions.js"></script>
         <script>window.onload = function() { loadFragment("forms/surveys.html", document.getElementById("form", 1));} </script>
+        <script src="js/surveys.js"></script>
     </head>
     <body>
 <a href="php/logout.php">log out</a>
