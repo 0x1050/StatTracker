@@ -35,6 +35,18 @@ else {
             exit();
         }
         else {
+            //We want to randomize the theme number at some point
+            mysqli_query($conn, "Insert INTO Users(username,
+                email,
+                password,
+                groupNumber,
+                theme) VALUES(\"" . $user                                . "\",
+                \"" . password_hash($_POST["email"], PASSWORD_BCRYPT)    . "\",
+                \"" . password_hash($_POST["password"], PASSWORD_BCRYPT) . "\",
+                \"" . $group                                             . "\",
+                \"1\")");
+            //Send user to survey
+            header("Location: ../forms/surveys.html");
             session_regenerate_id(true);
             //Create user, get primary ID
             $sql = "Insert INTO Users(username,  email,      password,      groupNumber, theme)
