@@ -11,6 +11,7 @@ require_once 'php/config.php';
 $token = $_SESSION["token"];
 $uid = mysqli_query($conn, "SELECT uid from Tokens WHERE token = \"$token\"")->fetch_assoc()['uid'];
 $userdata = mysqli_query($conn, "SELECT * FROM Users WHERE userID = \"$uid\"")->fetch_assoc();
+print_r($userdata);
 
 
 echo "Welcome, " . $userdata['username'] . "<br>Your userID is: " . $uid . ".<br>";
@@ -29,6 +30,7 @@ else
         <title></title>
         <link rel="stylesheet" href="css/main.css">
         <script src="js/functions.js"></script>
+        <script src="js/surveys.js"></script>
         <script>window.onload = function() { loadFragment("forms/surveys.html", document.getElementById("form", 1));} </script>
         <script src="js/surveys.js"></script>
     </head>
