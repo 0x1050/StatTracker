@@ -13,7 +13,12 @@ $uid = mysqli_query($conn, "SELECT uid from Tokens WHERE token = \"$token\"")->f
 $userdata = mysqli_query($conn, "SELECT * FROM Users WHERE userID = \"$uid\"")->fetch_assoc();
 
 
-echo "Welcome, " . $userdata['username'] . "<br>";
+echo "Welcome, " . $userdata['username'] . "<br>Your userID is: " . $uid . ".<br>";
+echo "You should see ";
+if ($uid % 2 == 1)
+    echo "&lt;- agree on your left and disagree on your right -&gt;<br>";
+else
+    echo "&lt;- disagree on your left and agree on your right -&gt;<br>";
 
 ?>
 
