@@ -1,48 +1,4 @@
 <?php
-    if ($_SESSION['like'] == "A") {
-        $like = $A;
-        $like1 = $like['1'];
-        $like2 = $like['2'];
-        $like3 = $like['3'];
-        $like = $A['4'];
-    }
-    elseif ($_SESSION['like'] == "B") {
-        $like = $B;
-        $like1 = $like['1'];
-        $like2 = $like['2'];
-        $like3 = $like['3'];
-        $like = $A['4'];
-    }
-    else {
-        $like = $C;
-        $like1 = $like['1'];
-        $like2 = $like['2'];
-        $like3 = $like['3'];
-        $like = $A['4'];
-    }
-
-    if ($_SESSION['dlike'] == "A") {
-        $dlike = $A;
-        $dlike1 = $dlike['1'];
-        $dlike2 = $dlike['2'];
-        $dlike3 = $dlike['3'];
-        $dlike = $A['4'];
-    }
-    elseif ($_SESSION['dlike'] == "B") {
-        $dlike = $B;
-        $dlike1 = $dlike['1'];
-        $dlike2 = $dlike['2'];
-        $dlike3 = $dlike['3'];
-        $dlike = $A['4'];
-    }
-    else {
-        $dlike = $C;
-        $dlike1 = $dlike['1'];
-        $dlike2 = $dlike['2'];
-        $dlike3 = $dlike['3'];
-        $dlike = $A['4'];
-    }
-
     //Set direction, if necessary
     if (!isset($_SESSION['agreeisleft'])) {
         if ($uid % 2 == 1){
