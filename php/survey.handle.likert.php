@@ -8,12 +8,23 @@ if(!isset($_SESSION['token'])) {
 }
 require_once 'table.data.config.php';
 
-$_SESSION['l1'] = $_POST['l1'];
-$_SESSION['l2'] = $_POST['l2'];
-$_SESSION['l3'] = $_POST['l3'];
-$_SESSION['d1'] = $_POST['d1'];
-$_SESSION['d2'] = $_POST['d2'];
-$_SESSION['d3'] = $_POST['d3'];
+echo "<br><br><br><br>";
+
+$_SESSION['l1'] = $_POST['1'];
+$_SESSION['l2'] = $_POST['2'];
+$_SESSION['l3'] = $_POST['3'];
+$_SESSION['d1'] = $_POST['4'];
+$_SESSION['d2'] = $_POST['5'];
+$_SESSION['d3'] = $_POST['6'];
+$_SESSION['q7'] = $_POST['7'];
+$_SESSION['q8'] = $_POST['8'];
+$_SESSION['q9'] = $_POST['9'];
+$_SESSION['q10'] = $_POST['9'];
+$_SESSION['q11'] = $_POST['9'];
+$_SESSION['q12'] = $_POST['9'];
+$_SESSION['q13'] = $_POST['9'];
+$_SESSION['q14'] = $_POST['9'];
+$_SESSION['q15'] = $_POST['9'];
 
 mysqli_close($conn);
 header("Location: ../survey.php");

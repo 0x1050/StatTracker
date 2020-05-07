@@ -14,5 +14,13 @@ $categories = array (
         "1" => "This is a very original use of technology",
         "2" => "There is a lot of value in this project",
         "3" => "It was fun to use this project",
+    ),
+    $M = array (
+        "1" => "I can create a similar project with the material I learned in this class",
+        "2" => "The group cut corners in their project",
+        "3" => "The presentation was informative",
+        "4" => "The group enjoyed making their project",
+        "5" => "I learned something I didn\'t know before during this presentation",
+        "6" => "I like this project"
     )
 );

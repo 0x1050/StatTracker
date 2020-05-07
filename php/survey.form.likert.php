@@ -2,12 +2,10 @@
     //Set direction, if necessary
     if (!isset($_SESSION['agreeisleft'])) {
         if ($uid % 2 == 1){
-            echo "agree";
             $_SESSION['agreeisleft'] = true;
         }
         else {
             $_SESSION['agreeisleft'] = false;
-            echo "disagree";
         }
     }
 
@@ -39,21 +37,23 @@
     }
     //Write that shit!
     echo "
-        <form id='likert' action='php/likert.survey.php' method='post' enctype='multipart/form-data'>";
+        <form id='likert' action='php/survey.handle.likert.php' method='post' enctype='multipart/form-data'>";
 
-    foreach ($cat as $categories) {
-        foreach ($statement as $cat) {
+$i = 0;
+    foreach ($categories as $statement) {
+        foreach ($statement as $stat) {
+            $i++;
 
    echo "<div>
-            <h2>$statement</h2>
+            <h2>$stat</h2>
 
-            <div class=\"radios\">
-            <input type='radio' name='l1' id='l1' value='$lln' onclick=\"buttonCheck()\"><label>$ll</label><p>
-            <input type='radio' name='l1' id='l2' value='$ln' onclick=\"buttonCheck()\"><label>$l</label><p>
-            <input type='radio' name='l1' id='l3' value='$mn' onclick=\"buttonCheck()\"><label>$m</label><p>
-            <input type='radio' name='l1' id='l4' value='$rn' onclick=\"buttonCheck()\"><label>$r</label><p>
-            <input type='radio' name='l1' id='l5' value='$rrn' onclick=\"buttonCheck()\"><label>$rr</label><p>
-            <input type='radio' name='l1' id='l6' class='hidden' value='0' checked>
+            <div class=\"radios $i\">
+            <input type='radio' name='$i' id='$i' value='$lln' onclick=\"buttonCheck()\"><label>$ll</label><p>
+            <input type='radio' name='$i' id='$i' value='$ln' onclick=\"buttonCheck()\"><label>$l</label><p>
+            <input type='radio' name='$i' id='$i' value='$mn' onclick=\"buttonCheck()\"><label>$m</label><p>
+            <input type='radio' name='$i' id='$i' value='$rn' onclick=\"buttonCheck()\"><label>$r</label><p>
+            <input type='radio' name='$i' id='$i' value='$rrn' onclick=\"buttonCheck()\"><label>$rr</label><p>
+            <input type='radio' name='$i' id='$i' class='hidden' value='0' checked>
             </div>
         </div>
 
@@ -61,7 +61,9 @@
         }
     }
 
-  echo "</form>
-        <script src=\"js/likert.js\"></script>
+
+    echo "
+</form>
+<script src=\"js/likert.js\"></script>
 ";
 ?>
