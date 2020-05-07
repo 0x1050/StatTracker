@@ -9,8 +9,9 @@ Also, this script fills in the group tables with random data, enabling us
 to begin parsing the information to create the statistics neccesary for
 the visualizations and the feedback -->
 <?php
-require_once 'config.php';
-require_once 'users.php';
+require_once 'nfig.php';
+require_once 'e:w
+rs.php';
 
 $sql = "DROP TABLE Users";
 mysqli_query($conn, $sql);

@@ -24,14 +24,30 @@ if (isset($_SESSION)) {
     <head>
         <meta charset="utf-8">
         <title></title>
+        <link rel="preload" href="css/main.css" as="style">
+        <link rel="preload" href="js/forms" as="script">
+        <link rel="preload" href="js/functions" as="script">
         <link rel="stylesheet" href="css/main.css">
     <script src="js/forms.js"></script>
     <script src="js/functions.js"></script>
     </head>
     <body>
+        <ul id="nav">
+            <li><a href="#">Theme</a>
+                <ul class="dropdown">
+                    <li><a href="#">0x1050</a></li>
+                    <li><a href="#">2</a></li>
+                    <li><a href="#">3</a></li>
+                    <li><a href="#">4</a></li>
+                    <li><a href="#">5</a></li>
+                </ul>
+            </li>
+            <li><a href="#">About</a></li>
+        </ul>
         <div id="form">
             &nbsp;
         </div>
     </body>
 </html>
+
 
