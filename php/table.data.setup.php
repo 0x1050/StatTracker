@@ -44,13 +44,23 @@ for ($i = 1; $i < 8; $i++) {
     $group .= "C1 INT(1) DEFAULT NULL,";
     $group .= "C2 INT(1) DEFAULT NULL, ";
     $group .= "C3 INT(1) DEFAULT NULL,";
+    $group .= "Q7 INT(1) DEFAULT NULL,";
+    $group .= "Q8 INT(1) DEFAULT NULL,";
+    $group .= "Q10 INT(1) DEFAULT NULL,";
+    $group .= "Q11 INT(1) DEFAULT NULL,";
+    $group .= "Q12 INT(1) DEFAULT NULL,";
+    $group .= "Q13 INT(1) DEFAULT NULL,";
+    $group .= "Q14 INT(1) DEFAULT NULL,";
+    $group .= "Q15 INT(1) DEFAULT NULL,";
     $group .= "Scale INT(2) NOT NULL,";
     $group .= "FF TEXT)";
 
     if (mysqli_query($conn, $group))
         echo "&#10004; Group$i<br>";
-    else
+    else {
         echo "&#10008; Group$i<br>";
+        echo $group;
+    }
 }
 //Create professor table
 $prof = "CREATE TABLE IF NOT EXISTS ProfData(CONTENT INT(1),";
@@ -73,4 +83,7 @@ if (mysqli_query($conn, $tokens))
 else
     echo "&#10008; Tokens<br>";
 mysqli_close($conn);
+//Create Stage table
+$stage = "CREATE TABLE Stage(S INT(1))";
+mysqli_query($conn, $stage);
 ?>

@@ -1,4 +1,4 @@
-echo "<form id="freeform" action="php/ff.scale.survey.php" method="post" enctype="multipart/form-data">
+echo "<form id="freeform" action="php/survey.handle.ff.scale.survey.php" method="post" enctype="multipart/form-data">
     <div id="ff">
     <h1>Is there anything you would like to say to
     the developers of this project?</h1>

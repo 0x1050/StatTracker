@@ -62,7 +62,7 @@ $i = 0;
     }
 
 
-    echo "
+    echo "<input type=\"submit\" name\"submit\">
 </form>
 <script src=\"js/likert.js\"></script>
 ";
