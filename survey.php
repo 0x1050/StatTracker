@@ -16,35 +16,9 @@ if (!isset($_SESSION['user'])) { //I'm aware that this leaks the username, but o
     $_SESSION['user'] = $userdata['username'];
     echo $_SESSION['user'];
 }
-?>
-<!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="utf-8">
-        <title>Welcome to the survey!</title>
-        <link rel="preload" href="css/main.css" as="style">
-        <link rel="stylesheet" href="css/main.css">
-        <script src="js/functions.js"></script>
-    </head>
-<body>
-        <ul id="nav">
-        <li><p>Welcome,<?php echo $_SESSION['user']; ?></p></li>
-            <li><a href="#">Theme</a>
-                <ul class="dropdown">
-                    <li><a href="#">0x1050</a></li>
-                    <li><a href="#">2</a></li>
-                    <li><a href="#">3</a></li>
-                    <li><a href="#">4</a></li>
-                    <li><a href="#">5</a></li>
-                </ul>
-            </li>
-            <li><a href="#">About</a>
-            <li><a href="php/logout.php">log out</a><li>
-        </ul>
 
-<div id="form">
-<?php
-//------------------------------------------First survey
+include 'header.html';
+
 if (!isset($_SESSION['like']) || !isset($_SESSION['dlike']))
     include 'forms/survey.form.cat.html';
 
@@ -59,7 +33,7 @@ elseif (!isset($_SESSION['l1'])       ||
     include 'php/survey.form.likert.php';
 }
 else if (!isset($_SESSION['fform']) || !isset($_SESSION['scale'])) {
-    include 'php/survey.form.ff.scale.php';
+    include 'forms/survey.form.ffscale.html';
 }
 else {
 echo "<form id=\"finishline\">

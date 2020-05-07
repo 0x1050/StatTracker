@@ -1,4 +1,3 @@
-
     echo "<form id='categories' action='php/category.survey.php' method='post' enctype='multipart/form-data'>
         <div class="left">
 

@@ -1,11 +1,10 @@
-echo "<form id="freeform" action="php/ff.scale.survey.php" method="post" enctype="multipart/form-data">
+<form id="freeform" action="php/ff.scale.survey.php" method="post" enctype="multipart/form-data">
     <div id="ff">
     <h1>Is there anything you would like to say to
     the developers of this project?</h1>
-        <textarea row="10" col="60" name="ff">
-    </div>
+        <textarea name="ff">
+        </textarea><br>
 
-    <div id="scale">
         <h1>Finally, how many stars would you give this project?</h1>
         <input type="radio" name="scale" value="1">
         <label id="scale1"></label>
@@ -31,4 +30,4 @@ echo "<form id="freeform" action="php/ff.scale.survey.php" method="post" enctype
 
     <input type="submit" name="submit" value="submit">
 </form>
-";
+
