@@ -1,6 +1,6 @@
 <?php
 session_start();
-require 'php/config.php';
+require 'php/table.data.config.php';
 if (isset($_SESSION)) {
     if (isset($_SESSION['token'])) {
         $token = $_SESSION['token'];
