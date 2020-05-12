@@ -23,6 +23,8 @@ if (isset($_SESSION)) {
 <html lang-"en">
     <head>
         <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="viewport" content="height=device-height, initial-scale=1">
         <title></title>
         <link rel="preload" href="css/main.css" as="style">
         <link rel="preload" href="js/forms" as="script">

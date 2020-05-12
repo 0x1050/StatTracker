@@ -16,13 +16,16 @@ if (!isset($_SESSION['user'])) { //I'm aware that this leaks the username, but o
     $_SESSION['user'] = $userdata['username'];
 }
 $userStage = $userdata['stage'];
+$user = $userdata['username'];
 $stage = mysqli_query($conn, "SELECT * FROM Stage")->fetch_assoc()['S'];
 include 'header.html';
 
 if ($userStage > $stage) {
     echo "<form id=\"finishline\">
-        <h1>Thank You!</h1>
-        </form>";
+        <h1>Thanks, $user!</h1>
+        <p>You are now done with this portion of the survey. There is nothing left here for you to do now.
+        There will be more stuff later, though. You can stick around and wait, or you can 
+        <a href=\"php/user.logout.php\">log out</a>. Do as you wish. We don't mind.</form>";
 exit();
 }
 elseif (!isset($_SESSION['like']) || !isset($_SESSION['dlike']))
