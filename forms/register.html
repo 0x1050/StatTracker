@@ -1,11 +1,12 @@
 <form id="verify" action="php/user.register.php" method="post" enctype="multipart/form-data" onkeyup="checkIfPassMatch(this)">
+    <h3>New Account</h3>
     <input type="text" id="username" name="username" placeholder="username" onkeyup="checkIfPassMatch(this)"><br>
     <input type="text" id="email" name="email" placeholder="email" onkeyup="checkIfPassMatch(this)"><br>
     <input type="text" id="group" name="group" placeholder="group number" onkeyup="checkIfPassMatch(this)"><br>
     <input type="password" id="pass1" name="pass1" placeholder="password" onkeyup="checkIfPassMatch(this)"><br>
     <input type="password" id="pass2" name="pass2" placeholder="confirm password" onkeyup="checkIfPassMatch(this)"><br>
     <button type="submit" value="register" name="register" id="submit" disabled>Register!</button><br>
-    <p><a href="#" onclick="loadFragment('forms/login.html', document.getElementById('form'))">Log in</a>
+    <p><a href="#" onclick="loadFragment('forms/login.html', document.getElementById('form'))">Log in</a><br>
     <a href="#"  onclick="loadFragment('forms/reset.html', document.getElementById('form'))">Forgot your password?</a></p>
 </form>
 

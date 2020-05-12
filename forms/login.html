@@ -1,7 +1,8 @@
 <form id="verify" action="php/user.login.php" method="post" enctype="multipart/form-data">
+    <h3>Login</h3>
     <input type="text" id="username" name="username" placeholder="username" required><br>
     <input type="password" id="password" name="password" placeholder="password" required><br>
     <button type="submit" value="login" name="login" id="submit">Login</button><br>
-    <p><a href="#" onclick="loadFragment('forms/register.html', document.getElementById('form'))">Not registered?</a>
+    <p><a href="#" onclick="loadFragment('forms/register.html', document.getElementById('form'))">Not registered?</a><br>
     <a href="#" onclick="loadFragment('forms/reset.html', document.getElementById('form'))">Forgot your password?</a></p>
 </form>

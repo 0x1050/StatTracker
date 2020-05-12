@@ -7,10 +7,18 @@ if(!isset($_SESSION['token'])) {
     exit();
 }
 require_once 'table.data.config.php';
-echo '<pre>' . print_r($_SESSION, TRUE) . '</pre>';
-echo '<pre>' . print_r($_POST, TRUE) . '</pre>';
+//echo "<pre>";
+//print_r($_POST);
+//echo "</pre>";
+
+$token = $_SESSION["token"];
+$uid = mysqli_query($conn, "SELECT uid from Tokens WHERE token = \"$token\"")->fetch_assoc()['uid'];
+$userdata = mysqli_query($conn, "SELECT * FROM Users WHERE userID = \"$uid\"")->fetch_assoc();
+$user = $userdata['username'];
 $_SESSION['fform'] = $_POST['ff'];
 $_SESSION['scale'] = $_POST['scale'];
+$stage = mysqli_query($conn, "SELECT * FROM Stage")->fetch_assoc()['S'];
+$group = $stage + 1;
 
 $liked = $_SESSION['like'];
 $dliked = $_SESSION['dlike'];
@@ -35,11 +43,11 @@ $q12 = $_SESSION['q12'];
 $q13 = $_SESSION['q13'];
 $q14 = $_SESSION['q14'];
 $q15 = $_SESSION['q15'];
-$fform = $_SESSION['fform'];
+$fform = empty($_POST['fform']) ? "NO_ENTRY" : $_POST['fform'];
 $scale = $_SESSION['scale'];
 
-$sql = "INSERT INTO G1(liked, 
-                       disliked,
+$sql = "INSERT INTO G$group(liked, 
+                     disliked,
                      A1,
                      A2,
                      A3,
@@ -76,9 +84,9 @@ $sql = "INSERT INTO G1(liked,
                                      \"$fform\",
                                      \"$scale\")";
 
-$user = $_SESSION['user'];
 
 $update = "UPDATE Users set stage = stage + 1 where username = \"$user\"";
+//echo $sql . "<br>";
 //echo $update;
 
 if (mysqli_query($conn, $sql)){

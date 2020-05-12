@@ -1,6 +1,6 @@
 @import url('fonts.css');
 ::placeholder {
-  color: #bbb;
+  color: #666;
 }
 }
 html, root, *, body {
@@ -17,17 +17,33 @@ body {
   margin: 0;
   padding: 0;
   top: 0;
+  color: #fff1d7;
   text-align: center;
+  background-color: #314550;
+  background-repeat: none;
+  background-size: cover;
+  background-attachment: fixed;
 }
 h1 {
   font-family: Montserrat;
   font-size: 200%;
   padding: 1em;
   line-height: 1.5em;
+  text-align: left;
+  margin; 0;
+  padding-left: 0;
+  color: #5b9;
+}
+
+h2 {
+  border-top: 5px solid #fff1d7;
+  padding-top: 1em;
 }
 
 p {
   line-height: 2em;
+  font-family: Open Sans;
+  text-align: left;
 }
 
 #form {
@@ -38,7 +54,7 @@ p {
   min-height: 80%;
 }
 button {
-  background-color:  #eee;
+  background-color:  #5b9;
   border: 0;
   width: 30%;
   line-height: 2em;
@@ -49,7 +65,6 @@ input {
   max-width: 70%;
   margin: 1em;
   line-height: 2em;
-  background-color: #6c7d84;
   border: 0;
   border-bottom: 3px solid #fff;
   text-align: center;
@@ -59,11 +74,12 @@ input {
 .radios {
   text-align: left;
   margin: auto;
-  width:80%;
+  background-color: #fff1;
+  padding: 1em;
 }
 
 .radios label {
-  color: #000;
+  color: #;
 }
 
 .hidden {
@@ -71,35 +87,79 @@ input {
 }
 
 h2 {
+  color: #5b9;
   line-height: 1.5em;
   text-align: left;
 }
 textarea {
+  background-color: #f1efe6;
   min-height: 10em;
   min-width: 20em;
   text-align: left;
+  border: 5px solid #5b9;
 }
 
 a {
   text-decoration: none;
-  color: #f00;
+  color: #5b9;
 }
 
 #verify {
-  background-color: #ddd;
+  background-color: #f1efe6;
   max-width: 30em;
   margin: auto;
-  border: 1px solid #000;
+  border: 10px solid #5b9;
   padding-top: 1em;
   padding-bottom: 1em;
 }
-#verify a {
+#verify p {
   font-size: 12px;
-  padding: 3em;
+  text-align: center;
 }
 
 #verify input {
-  color: #fff;
+  color: #000;
+  background-color: #f1efe6;
+  border-color: #314550;
 }
+
+h1.frontpage {
+  font-size: 300%;
+  margin-bottom: 0;
+  padding-bottom: 0;
+  text-align: center;
 }
-@media(min-width:60em){[[html{font-size: 100%;}}
+
+h3 {
+  color: #314550;
+  font-family: Montserrat;
+  font-size: 200%;
+}
+
+button:disabled {
+  color: #5b9;
+}
+
+input[type="submit"] {
+  border: 2px solid #5b9;
+  background-color: #fff1d7;
+
+  margin: 0;
+}
+input[type="submit"]:hover {
+  background-color: #5b9;
+  color: #fff1d7;
+  border-color: #fff1d7;
+}
+
+.buttons {
+  text-align: center;
+  background-color: #fff1;
+  padding: 1em;
+}
+
+.buttons input[type="submit"] {
+    width: 2em;
+}
+  
+}

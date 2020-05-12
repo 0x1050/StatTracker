@@ -7,19 +7,17 @@ if (!isset($_SESSION['token'])) {
     exit();
 }
 require_once 'php/table.data.config.php';
-
+//echo "<pre>";
+//print_r($_SESSION);
+//echo "<!pre>";
 $token = $_SESSION["token"];
 $uid = mysqli_query($conn, "SELECT uid from Tokens WHERE token = \"$token\"")->fetch_assoc()['uid'];
 $userdata = mysqli_query($conn, "SELECT * FROM Users WHERE userID = \"$uid\"")->fetch_assoc();
 
-if (!isset($_SESSION['user'])) { //I'm aware that this leaks the username, but oh well
-    $_SESSION['user'] = $userdata['username'];
-}
 $userStage = $userdata['stage'];
 $user = $userdata['username'];
 $stage = mysqli_query($conn, "SELECT * FROM Stage")->fetch_assoc()['S'];
 include 'header.html';
-
 if ($userStage > $stage) {
     echo "<form id=\"finishline\">
         <h1>Thanks, $user!</h1>
