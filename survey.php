@@ -25,8 +25,12 @@ if ($userStage > $stage) {
         There will be more stuff later, though. You can stick around and wait, or you can 
         <a href=\"php/user.logout.php\">log out</a>. Do as you wish. We don't mind.</form>";
 exit();
-}
-elseif (!isset($_SESSION['like']) || !isset($_SESSION['dlike']))
+
+//A user should alway be caught up
+if ($userStage < $stage)
+    $userStage = $stage;
+
+if (!isset($_SESSION['like']) || !isset($_SESSION['dlike']))
     include 'forms/survey.form.cat.html';
 
 elseif (!isset($_SESSION['l1'])       ||
