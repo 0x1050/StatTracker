@@ -18,33 +18,39 @@ $userStage = $userdata['stage'];
 $user = $userdata['username'];
 $stage = mysqli_query($conn, "SELECT * FROM Stage")->fetch_assoc()['S'];
 include 'header.html';
-if ($userStage > $stage) {
+//echo "Stage: " . $stage . "<br>";
+//echo "UserStage: " . $userStage;
+if ($userStage > $stage) { //User is ahead
     echo "<form id=\"finishline\">
         <h1>Thanks, $user!</h1>
         <p>You are now done with this portion of the survey. There is nothing left here for you to do now.
         There will be more stuff later, though. You can stick around and wait, or you can 
         <a href=\"php/user.logout.php\">log out</a>. Do as you wish. We don't mind.</form>";
-exit();
-
-//A user should alway be caught up
-if ($userStage < $stage)
-    $userStage = $stage;
-
-if (!isset($_SESSION['like']) || !isset($_SESSION['dlike']))
-    include 'forms/survey.form.cat.html';
-
-elseif (!isset($_SESSION['l1'])       ||
-    !isset($_SESSION['l2'])       ||
-    !isset($_SESSION['l3'])       ||
-    !isset($_SESSION['d1'])       ||
-    !isset($_SESSION['d2'])       ||
-    !isset($_SESSION['d3'])
-) {
-    require_once 'php/survey.data.categories.php';
-    include 'php/survey.form.likert.php';
+    exit();
 }
-else if (!isset($_SESSION['fform']) || !isset($_SESSION['scale'])) {
-    include 'forms/survey.form.ffscale.html';
+else { //User has not finished current stage
+    //A user should alway be caught up
+    if ($userStage < $stage) {
+        $sql = "UPDATE Users SET stage = \"$stage\" WHERE username = \"$user\"";
+        mysqli_query($conn, $sql);
+
+    }
+    if (!isset($_SESSION['like']) || !isset($_SESSION['dlike']))
+        include 'forms/survey.form.cat.html';
+
+    elseif (!isset($_SESSION['l1'])       ||
+        !isset($_SESSION['l2'])       ||
+        !isset($_SESSION['l3'])       ||
+        !isset($_SESSION['d1'])       ||
+        !isset($_SESSION['d2'])       ||
+        !isset($_SESSION['d3'])
+    ) {
+        require_once 'php/survey.data.categories.php';
+        include 'php/survey.form.likert.php';
+    }
+    else if (!isset($_SESSION['fform']) || !isset($_SESSION['scale'])) {
+        include 'forms/survey.form.ffscale.html';
+    }
 }
 ?>
 </div>

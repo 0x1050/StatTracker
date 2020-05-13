@@ -86,7 +86,7 @@ $sql = "INSERT INTO G$group(liked,
 
 
 //The group is alway one up from the stage. This ensures that the user is ahead
-$update = "UPDATE Users set stage = stage + 1 where username = \"$group\"";
+$update = "UPDATE Users set stage = stage + 1 where username = \"$user\"";
 //echo $sql . "<br>";
 //echo $update;
 
