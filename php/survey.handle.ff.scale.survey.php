@@ -43,7 +43,7 @@ $q12 = $_SESSION['q12'];
 $q13 = $_SESSION['q13'];
 $q14 = $_SESSION['q14'];
 $q15 = $_SESSION['q15'];
-$fform = empty($_POST['fform']) ? "NO_ENTRY" : $_POST['fform'];
+$ff = $_POST['ff'];
 $scale = $_SESSION['scale'];
 
 $sql = "INSERT INTO G$group(liked, 
@@ -81,12 +81,13 @@ $sql = "INSERT INTO G$group(liked,
                                      \"$q13\",
                                      \"$q14\",
                                      \"$q15\",
-                                     \"$fform\",
+                                     \"$ff\",
                                      \"$scale\")";
 
 
 //The group is alway one up from the stage. This ensures that the user is ahead
 $update = "UPDATE Users set stage = stage + 1 where username = \"$user\"";
+//echo $fform . "<br>";
 //echo $sql . "<br>";
 //echo $update;
 

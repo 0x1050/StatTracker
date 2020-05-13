@@ -51,6 +51,10 @@ else { //User has not finished current stage
     else if (!isset($_SESSION['fform']) || !isset($_SESSION['scale'])) {
         include 'forms/survey.form.ffscale.html';
     }
+    else {
+        header("Location: php/survey.handle.ff.scale.survey.php");
+        exit();
+    }
 }
 ?>
 </div>
