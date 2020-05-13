@@ -165,5 +165,8 @@ input[type="submit"]:hover {
 .buttons input[type="submit"] {
     width: 2em;
 }
-  
+svg {
+  background-color: #fff1;
+  border-radius: 1em 0 1em 0;
+  padding: 1em;
 }
