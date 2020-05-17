@@ -20,7 +20,7 @@ $categories = array (
         "2" => "The group cut corners in their project",
         "3" => "The presentation was informative",
         "4" => "The group enjoyed making their project",
-        "5" => "I learned something I didn\'t know before during this presentation",
+        "5" => "I learned something I didn't know before during this presentation",
         "6" => "I like this project"
     )
 );

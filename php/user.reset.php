@@ -29,7 +29,7 @@ else {
             $sql = "INSERT INTO Tokens(uid, token) VALUES(\"$uid\", \"$token\")";
             mysqli_query($conn, $sql);
             mysqli_close($conn);
-            header("Location: ../surveys.php");
+            header("Location: ../survey.php?origin=res&resetsuccesful");
             exit();
         }
         else { //stmt not prepared

@@ -166,7 +166,18 @@ input[type="submit"]:hover {
     width: 2em;
 }
 svg {
-  background-color: #fff1;
-  border-radius: 1em 0 1em 0;
+
   padding: 1em;
+  margin: 1em;
+}
+.bars {
+    transition: all .5s;
+  transform-origin: 50% 50%;
+  background-color: #123456;
+  
+}
+
+.bars:hover {
+  transform: scale(2,2);
+  z-index: 999;
 }
